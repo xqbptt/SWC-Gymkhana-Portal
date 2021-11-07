@@ -1,0 +1,30 @@
+
+{% extends "Home/base.html" %}
+{% load static %}
+{% block content %} 
+
+<title>Gymkhana-Home</title>
+<iframe src="{% url 'gymkhana-gallery' %}" frameborder="0" style="height: 490px; width: 100%;"></iframe>
+
+<h1 style="padding-top: 20px">Home Page-Student's Affairs</h1>
+
+<div class="container-fluid">
+        <div class="media">
+            <img class="rounded-circle account-img " src="{% static 'Home/default.png' %}" alt="pic"> 
+            <div class="media-body">
+                <p class="text-primary"><br>
+                    {{ members.name }}<br>
+                    <br>
+                    {{ members.position }},<br>
+                    {{ members.board }}<br>
+                    <br>
+                    Mobile: {{ members.mobile }}<br>
+                    Email: {{ members.email }}<br>
+                    Address: {{ members.address }}<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock content %}

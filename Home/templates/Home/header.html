@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gymkhana Council</title>
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="header.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div style="display: flex; background-color: #2c2c2c; padding-top: 10px;">
+        <div><img src="./images/IITGlogo.png" alt="" style="padding-left: 500px;padding-right: 20px; height: 40px;">
+        </div>
+        <div
+            style="align-self: center; font-size: 15px; letter-spacing: 2.5px;font-family: 'Roboto', sans-serif; color: white;">
+            INDIAN INSTITUTE OF TECHNOLOFY GUWAHATI</div>
+    </div>
+
+    <div class="header">
+        <nav>
+
+            <div class="Gymkhana"><img src="./images/logo.png" alt=""
+                    style="height: 55px; width: 55px; margin-right:15px; margin-top: 10px;"></div>
+            <div class="logo" style="font-weight: 600; padding-right: 115px;">GYMKHANA COUNCIL</div>
+            <div class="nav-items">
+                <li><a href="{% url 'gymkhana-home' %}" style="padding-right: 15px;"> HOME</a></li>
+                <li><a href="{% url 'gymkhana-senate' %}" style="padding-right: 15px;">SENATE</a></li>
+                <li><a href="{% url 'gymkhana-technical' %}" style="padding-right: 15px;">TECHNICAL</a></li>
+                <li><a href="{% url 'gymkhana-cultural' %}" style="padding-right: 15px;">CULTURAL</a></li>
+                <li><a href="{% url 'gymkhana-sports' %}" style="padding-right: 15px;">SPORTS</a></li>
+                <li><a href="{% url 'gymkhana-werlfare' %}" style="padding-right: 15px;">WELFARE</a></li>
+                <li><a href="{% url 'gymkhana-hab' %}" style="padding-right: 15px;">HAB</a></li>
+            </div>
+            <div class="content">
+                <div class="logos">
+                    <a href="#"> <img src="https://img.icons8.com/ios/50/ffffff/search--v1.png"
+                            style="height: 27px; padding-right: 10px;"></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/menu--v1.png"
+                            style="height: 27px; padding-right: 15px;"></a>
+                </div>
+            </div>
+
+        </nav>
+        <div style="background-color: #2c2c2c; color: #2c2c2c; height: 10px;">
+            <h6>H</h6>
+        </div>
+        <iframe src="gallery.html" frameborder="0px" style="height: 500px;width: 1536px;"></iframe>
+    </div>
+    <script>
+        const menuBtn = document.querySelector(".menu-icon span");
+        const searchBtn = document.querySelector(".search-icon");
+        const cancelBtn = document.querySelector(".cancel-icon");
+        const items = document.querySelector(".nav-items");
+        const form = document.querySelector("form");
+        menuBtn.onclick = () => {
+            items.classList.add("active");
+            menuBtn.classList.add("hide");
+            searchBtn.classList.add("hide");
+            cancelBtn.classList.add("show");
+        }
+        cancelBtn.onclick = () => {
+            items.classList.remove("active");
+            menuBtn.classList.remove("hide");
+            searchBtn.classList.remove("hide");
+            cancelBtn.classList.remove("show");
+            form.classList.remove("active");
+            cancelBtn.style.color = "#ff3d00";
+        }
+        searchBtn.onclick = () => {
+            form.classList.add("active");
+            searchBtn.classList.add("hide");
+            cancelBtn.classList.add("show");
+        }
+    </script>
+</body>
+
+</html>
