@@ -1,0 +1,153 @@
+<html>
+{% load static %}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .header {
+        text-align: center;
+        padding: 32px;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap;
+        /* IE10 */
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+        -ms-flex: 25%;
+        /* IE10 */
+        flex: 25%;
+        max-width: 25%;
+        padding: 0px;
+        margin-left: 0px;
+    }
+    
+body::-webkit-scrollbar {
+    display: none;
+}
+
+    .column img {
+        margin-top: 0px;
+        vertical-align: middle;
+        width: 100%;
+        margin-right: 18px;
+        margin-top: 30px;
+        margin-bottom: 0px;
+        padding-right: 15px;
+        padding-left: 18px;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+        .column {
+            -ms-flex: 50%;
+            flex: 50%;
+            max-width: 50%;
+        }
+    }
+
+    @keyframes scrollLeft {
+        0% {
+            transform: rotateX(180deg) translateX(0);
+        }
+
+        100% {
+            transform: rotateX(180deg) translateX(-30%);
+        }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .column {
+            -ms-flex: 100%;
+            flex: 100%;
+            max-width: 100%;
+        }
+    }
+</style>
+
+<body onload="startScroll()">
+    <!-- Photo Grid -->
+    <div class="row">
+        <div class="column">
+            <img src="{% static 'Home/images/img 1.jpg' %}" style="width:100%; padding-left: 0px; padding-top: 0px;margin-top: 0px;">
+            <img src="{% static 'Home/images/img 18.jpg' %}" style="width:100%;padding-left: 0px;">
+            <img src="{% static 'Home/images/img 4.jpg' %}" style="width:100%; padding-left: 0px;">
+            <img src="{% static 'Home/images/img 5.jpg' %}" style="width:100%; padding-left: 0px;">
+            <img src="{% static 'Home/images/img 33.jpg' %}" style="width:100%; padding-left: 0px;">
+            <img src="{% static 'Home/images/img 36.jpg' %}" style="width:100%; padding-left: 0px;">
+            <img src="{% static 'Home/images/img 37.jpg' %}" style="width:100%; padding-left: 0px;">
+            <img src="{% static 'Home/images/img 28.jpg' %}" style="width:100%; padding-left: 0px;">
+            <img src="{% static 'Home/images/img 35.jpg' %}" style="width:100%; padding-left: 0px;">
+            <img src="{% static 'Home/images/img 34.jpg' %}" style="width:100%; padding-left: 0px;">
+            <img src="{% static 'Home/images/img 32.jpg' %}" style="width:100%; padding-left: 0px;">
+        </div>
+        <div class="column">
+            <img src="{% static 'Home/images/img 6.jpg' %}" style="width:100%; padding-top: 0px;margin-top: 0px;">
+            <img src="{% static 'Home/images/img 38.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 27.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 9.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 10.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 7.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 8.jpg' %}" style="width:97%">
+            <img src="{% static 'Home/images/img 9.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 2.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 13.jpg' %}" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="{% static 'Home/images/img 26.jpg' %}" style="width:100%; padding-top: 0px;margin-top: 0px;">
+            <img src="{% static 'Home/images/img 15.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 22.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 31.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 19.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 20.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 21.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 22.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 23.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 11.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img 29.jpg' %}" style="width:100%">
+        </div>
+        <div class="column" style="padding-right: 0px; margin: 0px;">
+            <img src="{% static 'Home/images/img 25.jpg' %}"
+                style="width:100%; padding-right:0px;margin-right: 0px; padding-top: 0px;margin-top: 0px;">
+            <img src="{% static 'Home/images/img 11.jpg' %}" style="width:100%; padding-right:0px;margin-right: 0px;">
+            <img src="{% static 'Home/images/img 32.jpg' %}" style="width:100%; padding-right:0px;">
+            <img src="{% static 'Home/images/img 14.jpg' %}" style="width:100%; padding-right:0px;margin-right: 0px;">
+            <img src="{% static 'Home/images/img 17.jpg' %}" style="width:100%; padding-right:0px;margin-right: 0px;">
+            <img src="{% static 'Home/images/img 3.jpg' %}" style="width:100%; padding-right:0px;">
+            <img src="{% static 'Home/images/img 16.jpg' %}" style="width:100%; padding-right:0px;">
+            <img src="{% static 'Home/images/img 24.jpg' %}" style="width:100%; padding-right:0px;">
+            <img src="{% static 'Home/images/img 12.jpg' %}" style="width:100%; padding-right:0px;">
+            <img src="{% static 'Home/images/img 30.jpg' %}" style="width:100%; padding-right:0px;">
+        </div>
+    </div>
+    <script>
+        let scrollerID;
+        let paused = true;
+        let speed = 9; // 1 - Fast | 2 - Medium | 3 - Slow
+        let interval = speed * 5;
+
+        function startScroll() {
+            let id = setInterval(function () {
+                window.scrollBy(0, 2);
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    // Reached end of page
+                    stopScroll();
+                }
+            }, interval);
+            return id;
+        }
+        function stopScroll() {
+            clearInterval(scrollerID);
+        }
+    </script>
+    </body>
+    </html>
