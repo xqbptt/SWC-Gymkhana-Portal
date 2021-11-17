@@ -88,3 +88,6 @@ def complaint(request):
 
 def gallery(request):
     return render(request,'Home/gallery.html')
+
+def Senators(request):
+    return render(request, 'Home/Senators.html')
