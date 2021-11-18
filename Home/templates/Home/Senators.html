@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
+{% extends "Home/base.html" %}
 {% load static %}
+{% block content %}
 
 <head>
     <meta charset="UTF-8">
@@ -15,10 +14,11 @@
         href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Roboto+Slab:100,200,300,400,500,600,700,800,900">
+
     <style>
         @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic);
 
-        .at-section__title {
+        .at-section__title4 {
             margin: 0 0 50px;
             font-family: Oswald, sans-serif !important;
             color: #2c2c2c;
@@ -32,7 +32,7 @@
             box-sizing: border-box;
         }
 
-        .at-grid {
+        .at-grid4 {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -41,14 +41,14 @@
 
         }
 
-        .at-grid[data-column="1"] .at-column {
+        .at-grid4[data-column="1"] .at-column4 {
             width: 100%;
             max-width: 100%;
             min-width: 100%;
             flex-basis: 100%;
         }
 
-        .at-grid[data-column="2"] .at-column {
+        .at-grid4[data-column="2"] .at-column4 {
             width: 100%;
             height: 100%;
             max-width: 100%;
@@ -58,11 +58,11 @@
             margin: 10px;
         }
 
-        .at-grid[data-column="3"] .at-column {
-            width: 26%;
+        .at-grid4[data-column="3"] .at-column4 {
+            width: 31.7%;
         }
 
-        .at-column {
+        .at-column4 {
             position: relative;
             background: #FFF;
             box-shadow: 0 0 0 1px #E2E9ED;
@@ -71,25 +71,26 @@
             transition: box-shadow 0.2s ease, transform 0.2s ease;
         }
 
-        .at-column:before {
+        .at-column4:before {
             content: "";
             display: block;
-            padding-top: 120%;
+            padding-top: 85%;
+            padding-bottom: 35%;
         }
 
-        .at-column:hover {
+        .at-column4:hover {
             z-index: 1;
             box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
             transform: scale(1.05);
         }
 
-        .at-column:hover .at-social {
+        .at-column4:hover .at-social4 {
             margin: 16px 0 0;
             opacity: 1;
         }
 
         @media (max-width: 1000px) {
-            .at-column {
+            .at-column4 {
                 width: 50% !important;
                 max-width: 50% !important;
                 min-width: 50% !important;
@@ -98,7 +99,7 @@
         }
 
         @media (max-width: 600px) {
-            .at-column {
+            .at-column4 {
                 width: 100% !important;
                 max-width: 100% !important;
                 min-width: 100% !important;
@@ -106,7 +107,7 @@
             }
         }
 
-        .at-user {
+        .at-user4 {
             position: absolute;
             top: 50%;
             left: 0;
@@ -115,7 +116,7 @@
             text-align: center;
         }
 
-        .at-user__avatar {
+        .at-user__avatar4 {
             width: 280px;
             height: 280px;
             border-radius: 100%;
@@ -124,13 +125,13 @@
             overflow: hidden;
         }
 
-        .at-user__avatar img {
+        .at-user__avatar4 img {
             display: block;
             width: 100%;
             max-width: 100%;
         }
 
-        .at-user__name {
+        .at-user__name4 {
             font-family: Oswald, sans-serif !important;
             color: #2c2c2c !important;
             padding-top: 10px;
@@ -140,7 +141,7 @@
             text-align: center;
         }
 
-        .at-user__title {
+        .at-user__title4 {
             font-family: 'Open Sans', sans-serif;
             color: #ff6961 !important;
             padding-top: 3px;
@@ -149,29 +150,29 @@
             font-weight: 700;
         }
 
-        .at-social {
+        .at-social4 {
             margin: 0 0 -18px;
             opacity: 0;
             transition: margin 0.2s ease, opacity 0.2s ease;
         }
 
-        .at-social__item {
+        .at-social__item4 {
             display: inline-block;
             margin: 0 10px;
         }
 
-        .at-social__item a {
+        .at-social__item4 a {
             display: block;
         }
 
-        .at-social__item svg {
+        .at-social__item4 svg {
             fill: #515F65;
             display: block;
             height: 22px;
             transition: fill 0.2s ease;
         }
 
-        .at-social__item svg:hover {
+        .at-social__item4 svg:hover {
             fill: #788D96;
         }
 
@@ -182,17 +183,16 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
+        .container4 {
             max-width: 1385px;
-            width: 130%;
-            margin: 40px;
+            width: 120%;
             padding: 0 0px;
             box-sizing: border-box;
             transform-origin: top center;
             transform: scale(0.8);
         }
 
-        .u-font-oswald.u-custom-font {
+        .u-font-oswald4.u-custom-font4 {
             font-family: Oswald, sans-serif !important;
             color: #2c2c2c;
             pointer-events: initial;
@@ -212,7 +212,7 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            padding-left: 350px;
+            padding-left: 220px;
         }
 
         .column0 {
@@ -284,301 +284,296 @@
         }
     </style>
 </head>
+<!-- partial:index.partial.html -->
+<!-- partial -->
+<h1 class="u-custom-font4 u-font-oswald4" style="padding-bottom: 20px;">Faculty Executive Body</h1>
 
-<body>
-    <!-- partial:index.partial.html -->
-    <!-- partial -->
-
-    <h1 class="u-custom-font u-font-oswald" style="padding-bottom: 20px;">Faculty Executive Body</h1>
-
-    <div class="container0" style="background-color: #ffffff">
-        <div class="grid0">
-            <div class="column0">
-                <div class="user0">
-                    <div class="image0">
-                        <img src="images/dosa1.jpeg" alt="" style="width: 220px" />
-                    </div>
-                    <div class="block0">
-                        <div class="name0">Prof Amaresh Dalal</div>
-                        <div class="title0">Associate Dean 1,<br />Students’ Affairs</div>
-                    </div>
+<div class="container0" style="background-color: #ffffff">
+    <div class="grid0">
+        <div class="column0">
+            <div class="user0">
+                <div class="image0">
+                    <img src="{% static 'Home/images/dosa1.jpeg' %}" alt="" style="width: 220px" />
+                </div>
+                <div class="block0">
+                    <div class="name0">Prof Amaresh Dalal</div>
+                    <div class="title0">Associate Dean 1,<br />Students’ Affairs</div>
                 </div>
             </div>
-            <div class="column0">
-                <div class="user0">
-                    <div class="image0">
-                        <img src="images/dean.jpeg" alt="" style="width: 220px" />
-                    </div>
-                    <div class="block0">
-                        <div class="name0">Prof V.V. Dasu</div>
-                        <div class="title0">
-                            Dean, Students' Affairs<br />President, Students' Gymkhana<br />Council
-                        </div>
-                    </div>
+        </div>
+        <div class="column0">
+            <div class="user0">
+                <div class="image0">
+                    <img src="{% static 'Home/images/dean.jpeg' %}" alt="" style="width: 220px" />
                 </div>
-            </div>
-            <div class="column0">
-                <div class="user0">
-                    <div class="image0">
-                        <img src="images/dosa2.jpeg" alt="" style="width: 220px" />
-                    </div>
-                    <div class="block0">
-                        <div class="name0">Prof Anamika Barua</div>
-                        <div class="title0">Associate Dean 2,<br />Students’ Affairs</div>
+                <div class="block0">
+                    <div class="name0">Prof V.V. Dasu</div>
+                    <div class="title0">
+                        Dean, Students' Affairs<br />President, Students' Gymkhana<br />Council
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- partial -->
-    <hr style="width: 1200px; color: #2c2c2c; opacity:50%;">
-    <h1 class="u-custom-font u-font-oswald" style="padding-top: 20px;" >Student Executive Body</h1>
-
-    <div class="container">
-        
-        <div class="at-grid" data-column="3">
-            <div class="at-column">
-                <div class="at-user">
-                    <div class="at-user__avatar"><img src="images/WhatsApp Image 2021-11-17 at 19.47.57.jpeg" /></div>
-                    <div class="at-user__name">Prakhar Goyal</div>
-                    <div class="at-user__title">General Secretary<br>
-                        Hostel Affairs Board</div>
-                    <ul class=" at-social">
-                        <li class="at-social__item"><a href="#">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="#">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="#">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                    </ul>
+        <div class="column0">
+            <div class="user0">
+                <div class="image0">
+                    <img src="{% static 'Home/images/dosa2.jpeg' %}" alt="" style="width: 220px" />
                 </div>
-            </div>
-            <div class="at-column">
-                <div class="at-user">
-                    <div class="at-user__avatar"><img src="images/Sai.png" /></div>
-                    <div class="at-user__name">Sai Sumanth Madicherla</div>
-                    <div class="at-user__title"
-                        style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px; font-size: 1.4rem;"> Vice President
-                         </div>
-                    <ul class=" at-social">
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="at-column">
-                <div class="at-user">
-                    <div class="at-user__avatar"><img src="images/Shridam.png" /></div>
-                    <div class="at-user__name">Shridam Mahajan</div>
-                    <div class="at-user__title">General Secretary<br>
-                        Technical Board</div>
-                    <ul class="at-social">
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="at-column">
-                <div class="at-user">
-
-                    <div class="at-user__avatar"><img src="images/Aman.png" /></div>
-                    <div class="at-user__name">Aman Bansal</div>
-                    <div class="at-user__title"
-                        style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;">General
-                        Secretary<br>
-                        Welfare Board</div>
-                    <ul class=" at-social">
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="at-column">
-                <div class="at-user">
-
-                    <div class="at-user__avatar"><img src="images/Rishabh.png" /></div>
-                    <div class="at-user__name">Rushabh Parikh</div>
-                    <div class="at-user__title"
-                        style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;">General
-                        Secretary<br> Sports Board </div>
-                    <ul class=" at-social">
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="at-column">
-                <div class="at-user">
-                    <div class="at-user__avatar"><img src="images/Screenshot_2021-11-16_214133-removebg-preview.png" /></div>
-                    <div class="at-user__name">Neeraj Kumar</div>
-                    <div class="at-user__title"
-                        style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;"> General
-                        Secretary<br>
-                        SAIL</div>
-                    <ul class=" at-social">
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="at-column">
-                <div class="at-user">
-                    <div class="at-user__avatar"><img src="images/Alan.png" /></div>
-                    <div class="at-user__name">Allan T Thomas</div>
-                    <div class="at-user__title"
-                        style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;"> General
-                        Secretary<br>
-                        SWC (Students' Web Committee) </div>
-                    <ul class=" at-social">
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="at-column">
-                <div class="at-user">
-                    <div class="at-user__avatar"><img src="images/Harsh.png" /></div>
-                    <div class="at-user__name">Harsh Vardhan Singh Yadav</div>
-                    <div class="at-user__title"
-                        style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;"> General
-                        Secretary<br>
-                        Cultural Board</div>
-                    <ul class=" at-social">
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                        <li class="at-social__item"><a href="">
-                                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
-                                        fill-rule="evenodd"></path>
-                                </svg></a></li>
-                    </ul>
+                <div class="block0">
+                    <div class="name0">Prof Anamika Barua</div>
+                    <div class="title0">Associate Dean 2,<br />Students’ Affairs</div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- partial -->
+</div>
+<!-- partial -->
 
+<hr style="width: 1200px;  padding-left: 100px; color: #2c2c2c; opacity:50%;">
+<h1 class="u-custom-font4 u-font-oswald4" style="padding-top: 20px; padding-bottom: 40px;">Student Executive Body</h1>
 
+<div class="container4">
 
-</body>
+    <div class="at-grid4" data-column="3">
+        <div class="at-column4">
+            <div class="at-user4">
+                <div class="at-user__avatar4"><img src="{% static 'Home/images/Prakhar.jpeg' %}" /></div>
+                <div class="at-user__name4">Prakhar Goyal</div>
+                <div class="at-user__title4">General Secretary<br>
+                    Hostel Affairs Board</div>
+                <ul class=" at-social4">
+                    <li class="at-social__item4"><a href="#">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="#">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="#">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="at-column4">
+            <div class="at-user4">
+                <div class="at-user__avatar4"><img src="{% static 'Home/images/Sai.png' %}" /></div>
+                <div class="at-user__name4">Sai Sumanth Madicherla</div>
+                <div class="at-user__title4"
+                    style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px; font-size: 1.4rem;">
+                    Vice President
+                </div>
+                <ul class=" at-social4">
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="at-column4">
+            <div class="at-user4">
+                <div class="at-user__avatar4"><img src="{% static 'Home/images/Shridam.png' %}" /></div>
+                <div class="at-user__name4">Shridam Mahajan</div>
+                <div class="at-user__title4">General Secretary<br>
+                    Technical Board</div>
+                <ul class="at-social4">
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="at-column4">
+            <div class="at-user4">
 
-</html>
+                <div class="at-user__avatar4"><img src="{% static 'Home/images/Aman.png' %}" /></div>
+                <div class="at-user__name4">Aman Bansal</div>
+                <div class="at-user__title4"
+                    style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;">General
+                    Secretary<br>
+                    Welfare Board</div>
+                <ul class=" at-social4">
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="at-column4">
+            <div class="at-user4">
+
+                <div class="at-user__avatar4"><img src="{% static 'Home/images/Rishabh.png' %}" /></div>
+                <div class="at-user__name4">Rushabh Parikh</div>
+                <div class="at-user__title4"
+                    style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;">General
+                    Secretary<br> Sports Board </div>
+                <ul class=" at-social4">
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="at-column4">
+            <div class="at-user4">
+                <div class="at-user__avatar4"><img src="{% static 'Home/images/Neeraj.png' %}" />
+                </div>
+                <div class="at-user__name4">Neeraj Kumar</div>
+                <div class="at-user__title"
+                    style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;"> General
+                    Secretary<br>
+                    SAIL</div>
+                <ul class=" at-social4">
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="at-column4">
+            <div class="at-user4">
+                <div class="at-user__avatar4"><img src="{% static 'Home/images/Alan.png' %}" /></div>
+                <div class="at-user__name4">Allan T Thomas</div>
+                <div class="at-user__title4"
+                    style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;"> General
+                    Secretary<br>
+                    SWC (Students' Web Committee) </div>
+                <ul class=" at-social4">
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="at-column4">
+            <div class="at-user4">
+                <div class="at-user__avatar4"><img src="{% static 'Home/images/Harsh.png' %}" /></div>
+                <div class="at-user__name4">Harsh Vardhan Singh Yadav</div>
+                <div class="at-user__title4"
+                    style="margin-left: 15px; margin-right: 15px; margin-bottom: 2px ;padding-bottom: 2px;"> General
+                    Secretary<br>
+                    Cultural Board</div>
+                <ul class=" at-social4">
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                    <li class="at-social__item4"><a href="">
+                            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partial -->
+{% endblock %}
