@@ -23,7 +23,7 @@ def senate(request):
     context={
         'members': user
     }
-    return render(request,'Home/senate.html',context)
+    return render(request,'Home/Senators.html',context)
 
 def cultural(request):
     try:
