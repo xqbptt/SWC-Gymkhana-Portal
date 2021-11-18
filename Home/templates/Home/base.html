@@ -72,9 +72,18 @@
             font-weight: 500;
         }
 
+        .dropdown3 [data-toggle="dropdown"]:hover a {
+            background-color: #2c2c2c;
+            font: white;
+        }
+
         .dropdown3 [data-toggle="dropdown"]:hover {
             background: #414040;
             color: white;
+        }
+
+        :hover {
+            color: var(--hover-color);
         }
 
         .dropdown3 [data-toggle="dropdown"]:before {
@@ -117,6 +126,7 @@
             animation: hideAnimation 0.4s ease-out;
             -moz-animation: hideAnimation 0.4s ease-out;
             -webkit-animation: hideAnimation 0.4s ease-out;
+
         }
 
         .dropdown3>.dropdown-menu3 li {
@@ -159,6 +169,7 @@
             -o-transition: max-height 2s ease-in-out;
             -webkit-transition: max-height 2s ease-in-out;
             transition: max-height 2s ease-in-out;
+
         }
 
         .dropdown3>input[type="checkbox"]:checked+a[data-toggle="dropdown"]:before {
@@ -435,7 +446,6 @@
             color: #2c2c2c;
             pointer-events: initial;
             text-align: center;
-            padding-left: 80px;
             font-size: 2.48rem;
             width: 601px;
             font-weight: 525;
