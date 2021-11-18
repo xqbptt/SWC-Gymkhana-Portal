@@ -11,5 +11,6 @@ urlpatterns = [
     path('hab/', views.hab, name='gymkhana-hab'),
     path('complaint/', views.complaint, name='gymkhana-complaint'),
     path('gallery.html', views.gallery, name='gymkhana-gallery'),
+    path('Senators.html', views.Senators, name='gymkhana-Senators'),
 ]
 
