@@ -240,3 +240,14 @@ def formDetails(request):
   else:
       form = forms.AdditionForm()
   return render(request, 'tutorial/newAddition.html', {'form': form})
+
+def MinuteDetails(request):
+  if request.method == 'POST':
+      form = forms.MinuteForm(request.POST, request.FILES)
+      if form.is_valid():
+          form.save()
+          messages.success(request, f'Post Successful')
+          return redirect('home')
+  else:
+      form = forms.MinuteForm()
+  return render(request, 'tutorial/minuteAddition.html', {'form': form})

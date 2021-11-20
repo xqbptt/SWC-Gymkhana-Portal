@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(OutlookUser)
 admin.site.register(Team)
 admin.site.register(NewEvents)
+admin.site.register(NewMinutes)

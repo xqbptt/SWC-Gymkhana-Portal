@@ -40,6 +40,9 @@
               <li>
                 <a class="nav-link{% if request.resolver_match.view_name == 'formDetails' %} active{% endif %}" href="{% url 'senate-form' %}">Forms</a>
               </li>
+              <li>
+                <a class="nav-link{% if request.resolver_match.view_name == 'MinuteDetails' %} active{% endif %}" href="{% url 'minute-form' %}">Minutes</a>
+              </li>
             {% endif %}
           </ul>
           <ul class="navbar-nav justify-content-end">

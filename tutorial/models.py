@@ -12,10 +12,16 @@ class Team(models.Model):
     end_date = models.DateTimeField(default="no date")
 
 class NewEvents(models.Model):
-    name = models.TextField()
+    name = models.CharField(max_length=300)
     image = models.ImageField()
     about = models.TextField()
 
     def __str__(self):
         return self.name
 
+class NewMinutes(models.Model):
+    title = models.CharField(max_length=300)
+    pdf = models.FileField()
+
+    def __str__(self):
+        return self.title

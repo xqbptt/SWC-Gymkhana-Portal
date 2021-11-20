@@ -18,6 +18,6 @@ urlpatterns = [
   path('userDetails', views.userDetails, name='newevent'),
   path('teamDetails', views.teamDetails, name='newevent'),
   path('formDetails', views.formDetails, name='senate-form'),
-
+  path('MinuteDetails', views.MinuteDetails, name='minute-form'),
   
 ]
