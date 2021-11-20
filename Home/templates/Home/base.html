@@ -458,7 +458,7 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            padding-left: 260px;
+            padding-left: 230px;
         }
 
         .hr {
@@ -541,6 +541,34 @@
 
         .image0:hover {
             opacity: 50%;
+        }
+
+        .flip3D>.front {
+            width: 220px;
+            height: 256px;
+            border-radius: 0.3em;
+
+            transform: perspective(60em) rotateY(0deg);
+            backface-visibility: hidden;
+            transition: transform .5s linear 0s;
+        }
+
+        .flip3D>.back {
+            width: 220px;
+            height: 256px;
+            border-radius: 0.3em;
+            transform: perspective(60em) rotateY(180deg);
+            backface-visibility: hidden;
+            transition: transform .5s linear 0s;
+        }
+
+        .flip3D:hover>.front {
+            transform: perspective(60em) rotateY(-180deg);
+            display
+        }
+
+        .flip3D:hover>.back {
+            transform: perspective(60em) rotateY(0deg);
         }
     </style>
 </head>
