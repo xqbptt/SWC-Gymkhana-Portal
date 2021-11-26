@@ -4,8 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Senate Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
     <style>
+        nav {
+            background: #2c2c2c;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            padding: 0 30px;
+        }
+
+        nav .Gymkhana {
+            padding-left: 27px;
+            margin-left: 27px;
+            padding: 0px;
+            margin: 0px;
+            background-color: transparent !important;
+        }
+
         .body {
             margin: 0;
             padding: 0;
@@ -21,8 +40,8 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            padding-top: 194px;
-            padding-bottom: 194px;
+            padding-top: 124px;
+            padding-bottom: 70px;
         }
 
         .form-signin {
@@ -30,7 +49,7 @@
             max-width: 380px;
             padding: 15px 35px 45px;
             margin: 0 auto;
-            background-color: #202124;
+            background-color: #2c2c2c;
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
@@ -68,12 +87,26 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
+
+        footer {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <!-- partial:index.partial.html -->
-
+    <nav>
+        <div style="display: flex; background-color: #2c2c2c; padding-top: 10px;">
+            <div><img src="/Home/static/Home/images/logo.png" alt=""
+                    style="padding-left: 500px;padding-right: 20px; height: 40px;">
+            </div>
+            <div
+                style="align-self: center; font-size: 15px; letter-spacing: 2.5px;font-family: 'Roboto', sans-serif; color: white;">
+                INDIAN INSTITUTE OF TECHNOLOFY GUWAHATI
+            </div>
+        </div>
+    </nav>
     <div class="wrapper9">
         <form class="form-signin">
             <h2 class="form-signin-heading" style="text-align: center;">Senate Dashboard</h2>
@@ -87,7 +120,61 @@
         </form>
     </div>
     <!-- partial -->
-
+    <footer class="footer" style="background-color:#2c2c2c; color: white;">
+        <div class="container">
+            <div class="row"><br><br><br>
+                <div class="col-md-4" style="text-align:center;">
+                    <p class="foot2"><br>
+                        <img src="{% static 'Home/images/logo.png' %}" alt="Gymkhana logo"
+                            style="height: 50px; width: 50px; margin-right: 25px;">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        Students' Gymkhana Council,<br>
+                        New SAC Building<br>
+                        IIT Guwahati, Guwahati (Assam) - 781039<br>
+                        <br>
+                        <br>
+                    </p>
+                </div>
+                <div class="col-md-4" style="text-align:center;">
+                    <p class="foot2" style="margin-top:-1px;">
+                        <br>
+                        <a href="https://twitter.com/IITGuwahati/" target="_blank"><i
+                                class="bi bi-twitter"></i></a>&nbsp;
+                        <a href="https://www.facebook.com/swciitg/" target="_blank"><i
+                                class="bi bi-facebook"></i></a>&nbsp;
+                        <a href="https://www.instagram.com/iitgwt/" target="_blank"><i
+                                class="bi bi-instagram"></i></a>&nbsp;
+                        <a href="https://www.youtube.com/IITGuwahatiOfficial/" target="_blank"><i
+                                class="bi bi-youtube"></i></a>&nbsp;
+                        <a href="https://www.linkedin.com/company/student-s-web-committee-iitg/" target="_blank"><i
+                                class="bi bi-linkedin"></i></a><br>
+                        <br>
+                        <span><i class="bi bi-telephone"></i></span>+91-361-2582162<br>
+                        <span><i class="bi bi-envelope"></i></span><a
+                            href="mailto: sgciitg@gmail.com">sgciitg@gmail.com</a><br><br>
+                        </a><br>
+                    </p>
+                </div>
+                <div class="col-md-4" style="text-align:center;">
+                    <p class="foot2">
+                        <br>
+                        &copy; Students' Gymkhana Council, IIT Guwahati<br><a style="color:#ff6e6e"
+                            href="sgc/sgc1.html">
+                            Maintained by Digital Ops Team, SGC IIT Guwahati</a>
+                        </a><br>
+                        <a href="http://twitter.com/minimalmonkey" class="icon-button twitter"><i
+                                class="icon-twitter"></i><span></span></a>
+                        <a href="http://facebook.com" class="icon-button facebook"><i
+                                class="icon-facebook"></i><span></i></span></a>
+                        <a href="http://instagram.com" class="icon-button instagram"><i
+                                class="icon-instagram"></i><span></span></a>
+                        <a href="http://linkedin.com" class="icon-button linkedin"><i
+                                class="icon-linkedin"></i><span></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
