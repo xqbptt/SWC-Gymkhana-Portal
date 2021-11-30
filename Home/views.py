@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Complaints, Users, Events, Clubs, Boards
+from tutorial.models import NewMinutes
 from django.contrib import messages
 from . import forms
 
@@ -19,11 +20,11 @@ def home(request):
 
 def senate(request):
     try:
-        user = Users.objects.get()
-    except Users.DoesNotExist:
-        user = None
+        mins = NewMinutes.objects.get()
+    except NewMinutes.DoesNotExist:
+        mins = None
     context = {
-        'members': user
+        'minutes': mins
     }
     return render(request, 'Home/senate.html', context)
 
