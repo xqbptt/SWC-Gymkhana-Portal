@@ -13,4 +13,3 @@ urlpatterns = [
     path('gallery.html', views.gallery, name='gymkhana-gallery'),
     path('Senators.html', views.Senators, name='gymkhana-Senators'),
 ]
-
