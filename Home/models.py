@@ -1,9 +1,24 @@
 from django.db import models
 from django.db.models.base import Model
-
+from django.contrib.auth.models import User
 # Create your models here.
 
-class Complaints(models.Model):
+class Event(models.Model):
+    name = models.CharField(max_length=300)
+    image = models.ImageField()
+    about = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class Minute(models.Model):
+    title = models.CharField(max_length=300)
+    pdf = models.FileField()
+
+    def __str__(self):
+        return self.title
+
+class Complaint(models.Model):
     name = models.CharField(max_length=30)
     webmail = models.EmailField()
     complaint = models.TextField()
@@ -11,7 +26,7 @@ class Complaints(models.Model):
     def __str__(self):
         return self.name
 
-class Users(models.Model):
+class Senator(models.Model):
     image = models.ImageField(default='default.png', upload_to='profile_pics')
     name = models.CharField(max_length=30)
     position = models.CharField(max_length=30)
@@ -23,7 +38,7 @@ class Users(models.Model):
     def __str__(self):
         return self.name
 
-class Events(models.Model):
+class Event(models.Model):
     name = models.TextField()
     image = models.ImageField()
     about = models.TextField()
@@ -31,33 +46,33 @@ class Events(models.Model):
     def __str__(self):
         return self.name
 
-class Clubs(models.Model):
+class Club(models.Model):
     name = models.CharField(max_length=30)
     logo = models.ImageField()
     about = models.TextField()
     aim = models.TextField()
     activities = models.TextField()
     acheivements = models.TextField()
-    secretary = models.ForeignKey(Users,on_delete=models.CASCADE)
+    secretary = models.ForeignKey(Senator,on_delete=models.CASCADE)
     pastEvents = models.TextField()
 
     def __str__(self):
         return self.name
 
 
-class Boards(models.Model):
+class Board(models.Model):
     name = models.CharField(max_length=30)
     logo= models.ImageField()
     icon = models.ImageField()
     about = models.TextField()
-    chairman = models.ForeignKey(Users,on_delete=models.CASCADE)
-    event = models.ForeignKey(Events,on_delete=models.CASCADE)
-    club = models.ForeignKey(Clubs,on_delete=models.CASCADE)
+    chairman = models.ForeignKey(User,on_delete=models.CASCADE)
+    event = models.ForeignKey(Event,on_delete=models.CASCADE)
+    club = models.ForeignKey(Club,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
-class Announcements(models.Model):
+class Announcement(models.Model):
     title = models.TextField()
     date = models.DateTimeField()
     mark = models.CharField(max_length=20)
@@ -65,7 +80,7 @@ class Announcements(models.Model):
     def __str__(self):
         return self.title
 
-class Achievements(models.Model):
+class Achievement(models.Model):
     title = models.TextField()
     description = models.TextField()
     image = models.ImageField()

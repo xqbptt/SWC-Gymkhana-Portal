@@ -4,5 +4,5 @@ from django import forms
 
 class ComplaintForm(forms.ModelForm):
     class Meta:
-        model = models.Complaints
+        model = models.Complaint
         fields = ['name', 'webmail', 'complaint' ]
