@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Complaints, Users, Events, Clubs, Boards
-from tutorial.models import NewMinutes
+from Authentication.models import NewMinutes
 from django.contrib import messages
 from . import forms
 
