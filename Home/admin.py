@@ -1,19 +1,17 @@
-from Home.models import Complaints, Users
 from django.contrib import admin
-from .models import Complaints,Users,Events,Clubs,Boards,Achievements,Announcements
-
+from .models import *
 # Register your models here.
 
-admin.site.register(Complaints)
+admin.site.register(Complaint)
 
-admin.site.register(Users)
+admin.site.register(Senator)
 
-admin.site.register(Events)
+admin.site.register(Event)
 
-admin.site.register(Clubs)
+admin.site.register(Club)
 
-admin.site.register(Boards)
+admin.site.register(Board)
 
-admin.site.register(Announcements)
+admin.site.register(Announcement)
 
-admin.site.register(Achievements)
+admin.site.register(Achievement)

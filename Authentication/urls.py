@@ -11,9 +11,7 @@ urlpatterns = [
   # TEMPORARY
   path('signin', views.sign_in, name='signin'),
   path('signout', views.sign_out, name='signout'),
-  path('calendar', views.calendar, name='calendar'),
   path('callback', views.callback, name='callback'),
-  path('calendar/new', views.newevent, name='newevent'),
   path('calendarAPI', views.calendarAPI, name='newevent'),
   path('userDetails', views.userDetails, name='newevent'),
   path('teamDetails', views.teamDetails, name='newevent'),

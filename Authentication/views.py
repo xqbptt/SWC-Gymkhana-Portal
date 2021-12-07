@@ -1,4 +1,4 @@
-from Authentication.models import OutlookUser, Team
+from django.contrib.auth.models import User
 from django.http.response import JsonResponse
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseRedirect
@@ -7,7 +7,6 @@ from datetime import datetime, timedelta
 from dateutil import tz, parser
 from Authentication.auth_helper import get_sign_in_flow, get_token_from_code, store_user, remove_user_and_token, get_token
 from Authentication.graph_helper import *
-from django.core import serializers
 from django.contrib import messages
 from . import forms
 
@@ -15,7 +14,7 @@ from . import forms
 def home(request):
   context = initialize_context(request)
 
-  return render(request, 'auth/home.html', context)
+  return render(request, 'Authentication/home.html', context)
 # </HomeViewSnippet>
 
 # <InitializeContextSnippet>
@@ -39,9 +38,6 @@ def sign_in(request):
   # Get the sign-in flow
   
   flow = get_sign_in_flow()
-  print("helloooooooooooooooooooooooooooooooooooo")
-  print(flow)
-  print("\n\n\n\n\n\n\n\n\n\n\n\n\n")
   # Save the expected flow so we can use it in the callback
   try:
     request.session['auth_flow'] = flow
@@ -72,58 +68,14 @@ def callback(request):
   print(user)
   print(user['displayName'])
   print(user['mail'])
-  user_object = OutlookUser.objects.create(name = user['displayName'], email = user['mail'])
-  user_object.save()
+  try:
+    user_object = User.objects.get(username = user["displayName"])
+  except:
+    user_object = User.objects.create(username = user['displayName'], email = user['mail'])
+    user_object.save()
+  
   return HttpResponseRedirect(reverse('home'))
 # </CallbackViewSnippet>
-
-# <CalendarViewSnippet>
-def calendar(request):
-  context = initialize_context(request)
-  user = context['user']
-
-  # Load the user's time zone
-  # Microsoft Graph can return the user's time zone as either
-  # a Windows time zone name or an IANA time zone identifier
-  # Python datetime requires IANA, so convert Windows to IANA
-  time_zone = get_iana_from_windows(user['timeZone'])
-  tz_info = tz.gettz(time_zone)
-
-  # Get midnight today in user's time zone
-  today = datetime.now(tz_info).replace(
-    hour=0,
-    minute=0,
-    second=0,
-    microsecond=0)
-
-  # Based on today, get the start of the week (Sunday)
-  if (today.weekday() != 6):
-    start = today - timedelta(days=today.isoweekday())
-  else:
-    start = today
-
-  end = start + timedelta(days=7)
-
-  token = get_token(request)
-
-  events = get_calendar_events(
-    token,
-    start.isoformat(timespec='seconds'),
-    end.isoformat(timespec='seconds'),
-    user['timeZone'])
-  print(events)
-  if events:
-    # Convert the ISO 8601 date times to a datetime object
-    # This allows the Django template to format the value nicely
-    for event in events['value']:
-      event['start']['dateTime'] = parser.parse(event['start']['dateTime'])
-      event['end']['dateTime'] = parser.parse(event['end']['dateTime'])
-      team_object = Team.objects.create(team_name = event['organizer']['emailAddress']['name'], start_date=event['start']['dateTime'], end_date = event['end']['dateTime'])
-      team_object.save()
-    context['events'] = events['value']
-
-  return render(request, 'auth/calendar.html', context)
-# </CalendarViewSnippet>
 
 # <NewEventViewSnippet>
 def newevent(request):

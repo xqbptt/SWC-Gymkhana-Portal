@@ -34,9 +34,6 @@
               <a href="{% url 'home' %}" class="nav-link{% if request.resolver_match.view_name == 'home' %} active{% endif %}">Home</a>
             </li>
             {% if user.is_authenticated %}
-              <li class="nav-item" data-turbolinks="false" style="display: inline;">
-                <a class="nav-link{% if request.resolver_match.view_name == 'calendar' %} active{% endif %}" href="{% url 'calendar' %}">Calendar</a>
-              </li>
               <li>
                 <a class="nav-link{% if request.resolver_match.view_name == 'formDetails' %} active{% endif %}" href="{% url 'senate-form' %}">Forms</a>
               </li>

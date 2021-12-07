@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Complaints, Users, Events, Clubs, Boards
-from Authentication.models import NewMinutes
+from .models import Complaint, Senator, Event, Club, Board
+# from Authentication.models import NewMinutes
 from django.contrib import messages
 from . import forms
 
@@ -8,30 +8,30 @@ from . import forms
 
 
 def home(request):
-    try:
-        user = Users.objects.get()
-    except Users.DoesNotExist:
-        user = None
-    context = {
-        'members': user
-    }
+    # try:
+    #     user = Users.objects.get()
+    # except Users.DoesNotExist:
+    #     user = None
+    # context = {
+    #     'members': user
+    # }
     return render(request, 'Home/home.html', context)
 
 
 def senate(request):
-    try:
-        mins = NewMinutes.objects.get()
-    except NewMinutes.DoesNotExist:
-        mins = None
-    context = {
-        'minutes': mins
-    }
-    return render(request, 'Home/senate.html', context)
+    # try:
+    #     mins = NewMinutes.objects.get()
+    # except NewMinutes.DoesNotExist:
+    #     mins = None
+    # context = {
+    #     'minutes': mins
+    # }
+    return render(request, 'Home/senate.html')
 
 
 def cultural(request):
     try:
-        board = Boards.objects.get()
+        board = Board.objects.get()
     except:
         board = None
     context = {
@@ -42,7 +42,7 @@ def cultural(request):
 
 def technical(request):
     try:
-        board = Boards.objects.get()
+        board = Board.objects.get()
     except:
         board = None
     context = {
@@ -53,7 +53,7 @@ def technical(request):
 
 def welfare(request):
     try:
-        board = Boards.objects.get()
+        board = Board.objects.get()
     except:
         board = None
     context = {
@@ -64,7 +64,7 @@ def welfare(request):
 
 def sports(request):
     try:
-        board = Boards.objects.get()
+        board = Board.objects.get()
     except:
         board = None
     context = {
@@ -75,7 +75,7 @@ def sports(request):
 
 def hab(request):
     try:
-        board = Boards.objects.get()
+        board = Board.objects.get()
     except:
         board = None
     context = {
