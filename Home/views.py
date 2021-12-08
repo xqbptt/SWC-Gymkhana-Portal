@@ -15,7 +15,7 @@ def home(request):
     # context = {
     #     'members': user
     # }
-    return render(request, 'Home/home.html', context)
+    return render(request, 'Home/home.html')
 
 
 def senate(request):

@@ -15,3 +15,5 @@ admin.site.register(Board)
 admin.site.register(Announcement)
 
 admin.site.register(Achievement)
+
+admin.site.register(Minute)
