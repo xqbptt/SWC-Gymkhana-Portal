@@ -22,6 +22,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'Home/styles.css' %}">
     <link rel="stylesheet" href="{% static 'Home/header.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="{% static 'Home/images/logo.png' %}">
 
     <style>
@@ -736,6 +738,73 @@
                 font-weight: 600
             }
         }
+
+
+        .Hotbg {
+            position: absolute;
+            box-sizing: unset;
+            top: 8.3%;
+            left: 94%;
+            transform: translate(-100%, +50%);
+            background: #2f3640;
+            height: 25px;
+            border-radius: 40px;
+            padding: 5px;
+        }
+
+        .Hotbg:hover {
+            background-color: rgb(204, 203, 203);
+            color: #2c2c2c;
+        }
+
+        .Hotbg:hover>.Hotbg-txt {
+            width: 150px;
+            padding-left: 13px;
+            justify-content: center;
+        }
+
+        .Hotbg:hover>.Hotbg-btn {
+            background: azure;
+            color: #2c2c2c;
+
+        }
+
+        .Hotbg-btn {
+            color: #e84118;
+            float: right;
+            width: 33px;
+            height: 33px;
+            border-radius: 50%;
+            background: #2c2c2c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .Hotbg-btn>i {
+            font-size-adjust: 30px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .Hotbg-txt {
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            padding: 0;
+            color: #ffffff;
+            font-size: 15px;
+            transition: 0.4s;
+            line-height: 40px;
+            width: 0px;
+            font-weight: 430;
+        }
     </style>
 </head>
 
@@ -773,10 +842,19 @@
             </div>
             <div class="content">
                 <div class="logos">
-                    <a href="#"> <img src="https://img.icons8.com/ios/50/ffffff/search--v1.png"
-                            style="height: 27px; padding-right: 10px;"></a>
+
+
+                    <div class="Hotbg">
+                        <input type="text" name="" class="Hotbg-txt" placeholder="Search Here">
+                        <a href="#" class="Hotbg-btn">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+
                     <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/menu--v1.png"
                             style="height: 27px; padding-right: 15px;"></a>
+
+
                 </div>
             </div>
         </nav>
