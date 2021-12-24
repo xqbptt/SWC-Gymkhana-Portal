@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Complaint, Senator, Event, Club, Board
+from .models import Complaint, Senator, Event, Club, Board,PGSenator,UGSenator,GirlSenator,Minute
 # from Authentication.models import NewMinutes
 from django.contrib import messages
 from . import forms
@@ -8,25 +8,33 @@ from . import forms
 
 
 def home(request):
-    # try:
-    #     user = Users.objects.get()
-    # except Users.DoesNotExist:
-    #     user = None
-    # context = {
-    #     'members': user
-    # }
-    return render(request, 'Home/home.html')
+    try:
+        sr = Senator.objects.all()
+    except Senator.DoesNotExist:
+        sr = None
+    context = {
+        'reps': sr
+    }
+    return render(request, 'Home/home.html',context)
 
 
 def senate(request):
-    # try:
-    #     mins = NewMinutes.objects.get()
-    # except NewMinutes.DoesNotExist:
-    #     mins = None
-    # context = {
-    #     'minutes': mins
-    # }
-    return render(request, 'Home/senate.html')
+    try:
+        sr = Senator.objects.all()
+        ug = UGSenator.objects.all()
+        pg = PGSenator.objects.all()
+        gs = GirlSenator.objects.all()
+        ms = Minute.objects.all()
+    except Senator.DoesNotExist:
+        sr = None
+    context = {
+        'reps': sr,
+        'ugs':ug,
+        'pgs':pg,
+        'girls':gs,
+        'mins':ms
+    }
+    return render(request, 'Home/senate.html',context)
 
 
 def cultural(request):

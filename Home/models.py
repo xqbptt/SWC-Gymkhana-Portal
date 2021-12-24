@@ -30,6 +30,40 @@ class Senator(models.Model):
     image = models.ImageField(default='default.png', upload_to='profile_pics')
     name = models.CharField(max_length=30)
     position = models.CharField(max_length=60)
+    board = models.ForeignKey('Panel',on_delete=models.CASCADE,null=True)
+    mobile = models.CharField(max_length=20)
+    linked_in = models.CharField(max_length=100)
+    facebook = models.CharField(max_length=100)
+    email = models.EmailField()
+    address = models.TextField()
+    def __str__(self):
+        return self.name
+
+class PGSenator(models.Model):
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
+    name = models.CharField(max_length=30)
+    mobile = models.CharField(max_length=20)
+    linked_in = models.CharField(max_length=100)
+    facebook = models.CharField(max_length=100)
+    email = models.EmailField()
+    address = models.TextField()
+    def __str__(self):
+        return self.name
+
+class UGSenator(models.Model):
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
+    name = models.CharField(max_length=30)
+    mobile = models.CharField(max_length=20)
+    linked_in = models.CharField(max_length=100)
+    facebook = models.CharField(max_length=100)
+    email = models.EmailField()
+    address = models.TextField()
+    def __str__(self):
+        return self.name
+
+class GirlSenator(models.Model):
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
+    name = models.CharField(max_length=30)
     mobile = models.CharField(max_length=20)
     linked_in = models.CharField(max_length=100)
     facebook = models.CharField(max_length=100)
@@ -88,3 +122,9 @@ class Achievement(models.Model):
 
     def __str__(self):
         return self.title
+
+class Panel(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
