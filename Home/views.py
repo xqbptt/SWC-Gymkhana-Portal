@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Adosa,Gallery,Senator,Minute
+from .models import Gallery,Senator,Minute
 # from Authentication.models import NewMinutes
 from django.contrib import messages
 # from . import forms
@@ -10,7 +10,7 @@ from django.contrib import messages
 def home(request):
     try:
         sr = Senator.objects.all().filter(tag=1)
-        ads = Adosa.objects.all()
+        ads = Senator.objects.all().filter(tag=0)
     except Senator.DoesNotExist:
         sr = None
     context = {
@@ -27,7 +27,7 @@ def senate(request):
         pg = Senator.objects.all().filter(tag=3)
         gs = Senator.objects.all().filter(tag=4)
         ms = Minute.objects.all()
-        ads = Adosa.objects.all()
+        ads = Senator.objects.all().filter(tag=0)
     except Senator.DoesNotExist:
         sr = None
     context = {

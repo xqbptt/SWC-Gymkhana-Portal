@@ -11,13 +11,9 @@ class Minute(models.Model):
     def __str__(self):
         return self.title
 
-class Adosa(models.Model):
-    image = models.ImageField(default='default.png', upload_to='profile_pics')
+class About(models.Model):
     name = models.CharField(max_length=30)
-    position = models.CharField(max_length=60)
-    board = models.ForeignKey('Panel',on_delete=models.CASCADE,null=True)
-    mobile = models.CharField(max_length=20)
-    email = models.EmailField()
+    description = models.TextField()
     def __str__(self):
         return self.name
 
