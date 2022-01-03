@@ -290,41 +290,27 @@
 
 <div class="container0" style="background-color: #ffffff">
     <div class="grid0">
+        {% for members in dean.all %}
         <div class="column0">
-            <div class="user0">
-                <div class="image0">
-                    <img src="{% static 'Home/images/dosa1.jpeg' %}" alt="" style="width: 220px" />
-                </div>
-                <div class="block0">
-                    <div class="name0">Prof Amaresh Dalal</div>
-                    <div class="title0">Associate Dean 1,<br />Students’ Affairs</div>
-                </div>
-            </div>
-        </div>
-        <div class="column0">
-            <div class="user0">
-                <div class="image0">
-                    <img src="{% static 'Home/images/dean.jpeg' %}" alt="" style="width: 220px" />
-                </div>
-                <div class="block0">
-                    <div class="name0">Prof V.V. Dasu</div>
-                    <div class="title0">
-                        Dean, Students' Affairs<br />President, Students' Gymkhana<br />Council
+            <div class="user0" style="padding-right: 40px;">
+                <div class="flip3D">
+                    <div class="front" style="position: absolute;">
+                        <img class="image0" src="media/{{ members.image }}" alt="Italian Trulli">
+                    </div>
+                    <div class="back" style="position: absolute;background-color: #2c2c2c; text-align: center;">
+                        <h6
+                            style="position: center; padding-top: 120px; position: absolute; font-size: 15px;padding-left:27px;text-align: center;color: #f7f7f7;">
+                            {{ members.mobile }}<br>
+                            {{ members.email }}</h6>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="column0">
-            <div class="user0">
-                <div class="image0">
-                    <img src="{% static 'Home/images/dosa2.jpeg' %}" alt="" style="width: 220px" />
-                </div>
                 <div class="block0">
-                    <div class="name0">Prof Anamika Barua</div>
-                    <div class="title0">Associate Dean 2,<br />Students’ Affairs</div>
+                    <div class="name0" style="padding-top: 267px;padding-left: 30px;">{{ members.name }}</div>
+                    <div class="title0" style="padding-left: 15px;" style="width: 220px;">{{ members.position }},<br />{{ members.board }}</div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 <!-- partial -->

@@ -78,65 +78,30 @@
     <!-- Photo Grid -->
     <div class="row">
         <div class="column">
-            <img src="{% static 'Home/images/img 80.jpg' %}"
-                style="width:100%; padding-left: 0px; padding-top: 0px;margin-top: 0px;">
-
-            <img src="{% static 'Home/images/img 1.jpg' %}" style="width:100%;padding-left: 0px;">
-            <img src="{% static 'Home/images/img 18.jpg' %}" style="width:100%;padding-left: 0px;">
-            <img src="{% static 'Home/images/img 85.jpg' %}" style="width:100%;padding-left: 0px;">
-
-            <img src="{% static 'Home/images/img 4.jpg' %}" style="width:100%; padding-left: 0px;">
-            <img src="{% static 'Home/images/img 5.jpg' %}" style="width:100%; padding-left: 0px;">
-            <img src="{% static 'Home/images/img 33.jpg' %}" style="width:100%; padding-left: 0px;">
-            <img src="{% static 'Home/images/img 36.jpg' %}" style="width:100%; padding-left: 0px;">
-            <img src="{% static 'Home/images/img 37.jpg' %}" style="width:100%; padding-left: 0px;">
-            <img src="{% static 'Home/images/img 28.jpg' %}" style="width:100%; padding-left: 0px;">
-            <img src="{% static 'Home/images/img 35.jpg' %}" style="width:100%; padding-left: 0px;">
-            <img src="{% static 'Home/images/img 11.jpg' %}" style="width:100%; padding-left: 0px;">
+            <img src="{% static 'Home\images\img_80.jpg' %}" style="width:100%; padding-left: 0px; padding-top: 0px;margin-top: 0px;">
+            {% for i in img1.all %}
+            <img src="senate/media/{{ i.image }}" style="width:100%;padding-left: 0px;">
+            {% endfor %}
         </div>
         <div class="column">
-            <img src="{% static 'Home/images/img 6.jpg' %}" style="width:100%; padding-top: 0px;margin-top: 0px;">
-            <img src="{% static 'Home/images/img 81.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 88.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 38.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 86.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 27.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 9.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 10.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 7.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 8.jpg' %}" style="width:97%">
-            <img src="{% static 'Home/images/img 9.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 2.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img_6.jpg' %}" style="width:100%; padding-top: 0px;margin-top: 0px;">
+            {% for i in img2.all %}
+            <img src="senate/media/{{ i.image }}" style="width:100%;">
+            {% endfor %}
         </div>
         <div class="column">
-            <img src="{% static 'Home/images/img 26.jpg' %}" style="width:100%; padding-top: 0px;margin-top: 0px;">
-            <img src="{% static 'Home/images/img 83.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 15.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 22.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 87.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 31.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 19.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 20.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 21.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 22.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 23.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 11.jpg' %}" style="width:100%">
-            <img src="{% static 'Home/images/img 29.jpg' %}" style="width:100%">
+            <img src="{% static 'Home/images/img_26.jpg' %}" style="width:100%; padding-top: 0px;margin-top: 0px;">
+            {% for i in img3.all %}
+            <img src="senate/media/{{ i.image }}" style="width:100%;">
+            {% endfor %}
         </div>
         <div class="column" style="padding-right: 0px; margin: 0px;">
-            <img src="{% static 'Home/images/img 25.jpg' %}"
-                style="width:100%; padding-right:0px;margin-right: 0px; padding-top: 0px;margin-top: 0px;">
-            <img src="{% static 'Home/images/img 34.jpg' %}" style="width:100%; padding-right:0px;margin-right: 0px;">
-            <img src="{% static 'Home/images/img 32.jpg' %}" style="width:100%; padding-right:0px;">
-            <img src="{% static 'Home/images/img 82.jpg' %}" style="width:100%; padding-right:0px;">
-            <img src="{% static 'Home/images/img 14.jpg' %}" style="width:100%; padding-right:0px;margin-right: 0px;">
-            <img src="{% static 'Home/images/img 17.jpg' %}" style="width:100%; padding-right:0px;margin-right: 0px;">
-            <img src="{% static 'Home/images/img 3.jpg' %}" style="width:100%; padding-right:0px;">
-            <img src="{% static 'Home/images/img 16.jpg' %}" style="width:100%; padding-right:0px;">
-            <img src="{% static 'Home/images/img 24.jpg' %}" style="width:100%; padding-right:0px;">
-            <img src="{% static 'Home/images/img 12.jpg' %}" style="width:100%; padding-right:0px;">
-            <img src="{% static 'Home/images/img 84.jpg' %}" style="width:100%; padding-right:0px;">
-            <img src="{% static 'Home/images/img 30.jpg' %}" style="width:100%; padding-right:0px;">
+            <img src="{% static 'Home/images/img_25.jpg' %}" style="width:100%; padding-right:0px;margin-right: 0px; padding-top: 0px;margin-top: 0px;">
+            <img src="{% static 'Home/images/img_34.jpg' %}" style="width:100%; padding-right:0px;margin-right: 0px;">
+            {% for i in img4.all %}
+            <img src="senate/media/{{ i.image }}" style="width:100%; padding-right:0px;">
+            {% endfor %}
+            
         </div>
     </div>
     <script>

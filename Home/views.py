@@ -1,30 +1,33 @@
 from django.shortcuts import render, redirect
-from .models import Complaint, Senator, Event, Club, Board,PGSenator,UGSenator,GirlSenator,Minute
+from .models import Adosa,Gallery,Senator,Minute
 # from Authentication.models import NewMinutes
 from django.contrib import messages
-from . import forms
+# from . import forms
 
 # Create your views here.
 
 
 def home(request):
     try:
-        sr = Senator.objects.all()
+        sr = Senator.objects.all().filter(tag=1)
+        ads = Adosa.objects.all()
     except Senator.DoesNotExist:
         sr = None
     context = {
-        'reps': sr
+        'reps': sr,
+        'dean': ads
     }
     return render(request, 'Home/home.html',context)
 
 
 def senate(request):
     try:
-        sr = Senator.objects.all()
-        ug = UGSenator.objects.all()
-        pg = PGSenator.objects.all()
-        gs = GirlSenator.objects.all()
+        sr = Senator.objects.all().filter(tag=1)
+        ug = Senator.objects.all().filter(tag=2)
+        pg = Senator.objects.all().filter(tag=3)
+        gs = Senator.objects.all().filter(tag=4)
         ms = Minute.objects.all()
+        ads = Adosa.objects.all()
     except Senator.DoesNotExist:
         sr = None
     context = {
@@ -32,80 +35,52 @@ def senate(request):
         'ugs':ug,
         'pgs':pg,
         'girls':gs,
-        'mins':ms
+        'mins':ms,
+        'dean':ads
     }
     return render(request, 'Home/senate.html',context)
 
 
 def cultural(request):
-    try:
-        board = Board.objects.get()
-    except:
-        board = None
-    context = {
-        'details': board
-    }
-    return render(request, 'Home/cultural.html', context)
+    
+    return render(request, 'Home/cultural.html')
 
 
 def technical(request):
-    try:
-        board = Board.objects.get()
-    except:
-        board = None
-    context = {
-        'details': board
-    }
-    return render(request, 'Home/technical.html', context)
+    
+    return render(request, 'Home/technical.html')
 
 
 def welfare(request):
-    try:
-        board = Board.objects.get()
-    except:
-        board = None
-    context = {
-        'details': board
-    }
-    return render(request, 'Home/welfare.html', context)
+    
+    return render(request, 'Home/welfare.html')
 
 
 def sports(request):
-    try:
-        board = Board.objects.get()
-    except:
-        board = None
-    context = {
-        'details': board
-    }
-    return render(request, 'Home/sports.html', context)
+
+    return render(request, 'Home/sports.html')
 
 
 def hab(request):
-    try:
-        board = Board.objects.get()
-    except:
-        board = None
-    context = {
-        'details': board
-    }
-    return render(request, 'Home/hab.html', context)
-
-
-def complaint(request):
-    if request.method == 'POST':
-        form = forms.ComplaintForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request, f'Post Successful')
-            return redirect('gymkhana-home')
-    else:
-        form = forms.ComplaintForm()
-    return render(request, 'Home/complaint.html', {'form': form})
+    
+    return render(request, 'Home/hab.html')
 
 
 def gallery(request):
-    return render(request, 'Home/gallery.html')
+    try:
+        pics1 = Gallery.objects.all().filter(tag=1)
+        pics2 = Gallery.objects.all().filter(tag=2)
+        pics3 = Gallery.objects.all().filter(tag=3)
+        pics4 = Gallery.objects.all().filter(tag=4)
+    except Gallery.DoesNotExist:
+        pics1 = None
+    context = {
+        'img1': pics1,
+        'img2': pics2,
+        'img3': pics3,
+        'img4': pics4
+    }
+    return render(request, 'Home/gallery.html', context)
 
 
 def Senators(request):
