@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.contrib.auth import login # importing login
 from django.http.response import JsonResponse
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseRedirect
@@ -62,7 +63,6 @@ def callback(request):
   print(result)
   #Get the user's profile
   user = get_user(result['access_token'])
-
   # Store user
   store_user(request, user)
   print(user)
@@ -73,8 +73,11 @@ def callback(request):
   except:
     user_object = User.objects.create(username = user['displayName'], email = user['mail'])
     user_object.save()
-  
-  return HttpResponseRedirect(reverse('home'))
+  if user_object is not None: 
+    login(request,user_object)  # we call the login function to bind a user to current session, this way they get automatically logged in to django admin website
+  user_object.is_staff = True # we also need to set is_staff permission to true so that they have access to admin dashboard
+  user_object.save()
+  return HttpResponseRedirect(reverse('admin:index')) # now we just redirect to admin view, search for httpresponseredirect on django docs for more info.
 # </CallbackViewSnippet>
 
 # <NewEventViewSnippet>
