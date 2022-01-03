@@ -1,15 +1,8 @@
 from django.db import models
 from django.db.models.base import Model
 from django.contrib.auth.models import User
+from django.db.models.fields import TextField
 # Create your models here.
-
-class Event(models.Model):
-    name = models.CharField(max_length=300)
-    image = models.ImageField()
-    about = models.TextField()
-
-    def __str__(self):
-        return self.name
 
 class Minute(models.Model):
     title = models.CharField(max_length=300)
@@ -18,113 +11,54 @@ class Minute(models.Model):
     def __str__(self):
         return self.title
 
-class Complaint(models.Model):
+class Adosa(models.Model):
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
     name = models.CharField(max_length=30)
-    webmail = models.EmailField()
-    complaint = models.TextField()
-
+    position = models.CharField(max_length=60)
+    board = models.ForeignKey('Panel',on_delete=models.CASCADE,null=True)
+    mobile = models.CharField(max_length=20)
+    email = models.EmailField()
     def __str__(self):
         return self.name
+
 
 class Senator(models.Model):
     image = models.ImageField(default='default.png', upload_to='profile_pics')
     name = models.CharField(max_length=30)
-    position = models.CharField(max_length=60)
+    position = models.CharField(max_length=60, blank=True)
     board = models.ForeignKey('Panel',on_delete=models.CASCADE,null=True)
     mobile = models.CharField(max_length=20)
     linked_in = models.CharField(max_length=100)
     facebook = models.CharField(max_length=100)
     email = models.EmailField()
     address = models.TextField()
+    tag = models.IntegerField(null=True)
     def __str__(self):
         return self.name
-
-class PGSenator(models.Model):
-    image = models.ImageField(default='default.png', upload_to='profile_pics')
-    name = models.CharField(max_length=30)
-    mobile = models.CharField(max_length=20)
-    linked_in = models.CharField(max_length=100)
-    facebook = models.CharField(max_length=100)
-    email = models.EmailField()
-    address = models.TextField()
-    def __str__(self):
-        return self.name
-
-class UGSenator(models.Model):
-    image = models.ImageField(default='default.png', upload_to='profile_pics')
-    name = models.CharField(max_length=30)
-    mobile = models.CharField(max_length=20)
-    linked_in = models.CharField(max_length=100)
-    facebook = models.CharField(max_length=100)
-    email = models.EmailField()
-    address = models.TextField()
-    def __str__(self):
-        return self.name
-
-class GirlSenator(models.Model):
-    image = models.ImageField(default='default.png', upload_to='profile_pics')
-    name = models.CharField(max_length=30)
-    mobile = models.CharField(max_length=20)
-    linked_in = models.CharField(max_length=100)
-    facebook = models.CharField(max_length=100)
-    email = models.EmailField()
-    address = models.TextField()
-    def __str__(self):
-        return self.name
-
-class Event(models.Model):
-    name = models.TextField()
-    image = models.ImageField()
-    about = models.TextField()
-
-    def __str__(self):
-        return self.name
-
-class Club(models.Model):
-    name = models.CharField(max_length=30)
-    logo = models.ImageField()
-    about = models.TextField()
-    aim = models.TextField()
-    activities = models.TextField()
-    acheivements = models.TextField()
-    secretary = models.ForeignKey(Senator,on_delete=models.CASCADE)
-    pastEvents = models.TextField()
-
-    def __str__(self):
-        return self.name
-
-
-class Board(models.Model):
-    name = models.CharField(max_length=30)
-    logo= models.ImageField()
-    icon = models.ImageField()
-    about = models.TextField()
-    chairman = models.ForeignKey(User,on_delete=models.CASCADE)
-    event = models.ForeignKey(Event,on_delete=models.CASCADE)
-    club = models.ForeignKey(Club,on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-class Announcement(models.Model):
-    title = models.TextField()
-    date = models.DateTimeField()
-    mark = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.title
-
-class Achievement(models.Model):
-    title = models.TextField()
-    description = models.TextField()
-    image = models.ImageField()
-    year = models.IntegerField()
-
-    def __str__(self):
-        return self.title
 
 class Panel(models.Model):
     name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
+class Card(models.Model):
+    name = models.CharField(max_length=40)
+    boardName = models.CharField(max_length=30)
+    description = models.TextField()
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
+    position = models.CharField(max_length=40)
+    notices = models.TextField()
+    events = models.TextField()
+    announcements = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class Gallery(models.Model):
+    name = models.CharField(max_length=30)
+    image = models.ImageField()
+    tag = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
