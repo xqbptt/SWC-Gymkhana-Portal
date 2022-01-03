@@ -4,7 +4,7 @@
 
 <!-- partial:index.partial.html -->
 <!-- partial -->
-<div style="display: flex;">
+<div style="display: flex; padding-left: 120px;">
     <h1 class="u-custom-font4 u-font-oswald4" style="padding-bottom: 20px; padding-left: 200px; ">
         Faculty Executive Body
     </h1>
@@ -15,16 +15,15 @@
                 <a href="#" data-toggle="dropdown" style="--hover-color: green">Minutes</a>
                 <ul class="dropdown-menu3">
                     {% for m in mins.all %}
-                    <li><a href="media/{{ m.pdf }}"
-                            target="_blank">{{ m.title }}</a></li>       
-                    {% endfor %}        
+                    <li><a href="media/{{ m.pdf }}" target="_blank">{{ m.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </li>
         </ul>
     </div>
 </div>
 
-<div class="container0" style="background-color: #ffffff">
+<div class="container0" style="background-color: #ffffff; padding-left: 120px;">
     <div class="grid0">
         {% for members in dean.all %}
         <div class="column0">
@@ -42,7 +41,8 @@
                 </div>
                 <div class="block0">
                     <div class="name0" style="padding-top: 267px;padding-left: 30px;">{{ members.name }}</div>
-                    <div class="title0" style="padding-left: 15px;" style="width: 220px;">{{ members.position }},<br />{{ members.board }}</div>
+                    <div class="title0" style="padding-left: 15px;" style="width: 220px;">{{ members.position
+                        }},<br />{{ members.board }}</div>
                 </div>
             </div>
         </div>
@@ -104,8 +104,7 @@
         <div class="at-column4">
             <div class="at-user4">
                 <div class="at-user__avatar4"><a href="https://wa.me/{{members.mobile}}" target="blank"><img
-                            src="media/{{ members.image }}"
-                            style="width:7cm; padding-left: 50px;" /></a></div>
+                            src="media/{{ members.image }}" style="width:7cm; padding-left: 50px;" /></a></div>
                 <div class="at-user__name4">{{members.name}}</div>
                 <div class="at-user__title4">{{members.address}}</div>
                 <div class="contact">{{members.mobile}}<br>{{members.email}}</div>
@@ -146,8 +145,7 @@
         <div class="at-column4">
             <div class="at-user4">
                 <div class="at-user__avatar4"><a href="https://wa.me/{{members.mobile}}" target="blank"><img
-                            src="media/{{ members.image }}"
-                            style="width:7cm; padding-left: 50px;" /></a></div>
+                            src="media/{{ members.image }}" style="width:7cm; padding-left: 50px;" /></a></div>
                 <div class="at-user__name4">{{members.name}}</div>
                 <div class="at-user__title4">{{members.address}}</div>
                 <div class="contact">{{members.mobile}}<br>{{members.email}}</div>
@@ -188,8 +186,7 @@
         <div class="at-column4">
             <div class="at-user4">
                 <div class="at-user__avatar4"><a href="https://wa.me/{{members.mobile}}" target="blank"><img
-                            src="media/{{ members.image }}"
-                            style="width:7cm; padding-left: 50px;" /></a></div>
+                            src="media/{{ members.image }}" style="width:7cm; padding-left: 50px;" /></a></div>
                 <div class="at-user__name4">{{members.name}}</div>
                 <div class="at-user__title4">{{members.address}}</div>
                 <div class="contact">{{members.mobile}}<br>{{members.email}}</div>
