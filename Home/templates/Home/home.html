@@ -1,10 +1,29 @@
 {% extends "Home/base.html" %}
 {% load static %}
 {% block content %}
+<div>
 
-<title>Gymkhana-Home</title>
-<iframe src="{% url 'gymkhana-gallery' %}" frameborder="0"
-    style="height: 500px; width: 115%; margin-bottom: 50px;"></iframe>
+    <nav>
+        <div class="nav-items" style="width: 1540px; background-color: white;">
+            <li
+                style="color: white; background-color: #2170E8; font-weight: 300; padding: 17px 70px 17px 70px;margin-right: 100px;">
+                GYMKHANA COUNCIL</li>
+            <li><a href="{% url 'gymkhana-home' %}" style="padding-top:17px;"> HOME</a></li>
+            <li><a href="{% url 'gymkhana-senate' %}">SENATE</a></li>
+            <li><a href="https://www.iitg.ac.in/stud/gymkhana/technical/index.html"
+                    style="padding-right: 15px;">TECHNICAL</a></li>
+            <li><a href="https://www.iitg.ac.in/stud/gymkhana/Cultural%20Board/culthome.html"
+                    style="padding-right: 15px;">CULTURAL</a></li>
+            <li><a href="https://www.iitg.ac.in/stud/gymkhana/sports/sportsboard.html"
+                    style="padding-right: 15px;">SPORTS</a></li>
+            <li><a href="https://www.iitg.ac.in/stud/gymkhana/welfareBoard/welfareboard.html"
+                    style="padding-right: 15px;">WELFARE</a></li>
+            <li><a href="https://www.iitg.ac.in/stud/gymkhana/hostelBoard/hab.html">HAB</a>
+            </li>
+        </div>
+    </nav>
+</div>
+<iframe src="{% url 'gymkhana-gallery' %}" frameborder="0" style="height: 530px; width: 115%;"></iframe>
 
 <div style="color: #2c2c2c; padding-left: 140px; font-family: Roboto, sans-serif;   ">
     <h2><br><br><b>Welcome to the Students' Gymkhana

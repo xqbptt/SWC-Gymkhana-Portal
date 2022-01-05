@@ -4,8 +4,27 @@
 
 <!-- partial:index.partial.html -->
 <!-- partial -->
-<div style="display: flex; padding-left: 120px;">
-    <h1 class="u-custom-font4 u-font-oswald4" style="padding-bottom: 20px; padding-left: 200px; ">
+<nav>
+    <div class="nav-items" style="width: 1540px; background-color: white;">
+        <li
+            style="color: white; background-color: #2170E8; font-weight: 300; padding: 17px 70px 17px 70px;margin-right: 100px;">
+            GYMKHANA COUNCIL</li>
+        <li><a href="{% url 'gymkhana-home' %}" style="padding-top:17px;"> HOME</a></li>
+        <li><a href="{% url 'gymkhana-senate' %}">SENATE</a></li>
+        <li><a href="https://www.iitg.ac.in/stud/gymkhana/technical/index.html"
+                style="padding-right: 15px;">TECHNICAL</a></li>
+        <li><a href="https://www.iitg.ac.in/stud/gymkhana/Cultural%20Board/culthome.html"
+                style="padding-right: 15px;">CULTURAL</a></li>
+        <li><a href="https://www.iitg.ac.in/stud/gymkhana/sports/sportsboard.html"
+                style="padding-right: 15px;">SPORTS</a></li>
+        <li><a href="https://www.iitg.ac.in/stud/gymkhana/welfareBoard/welfareboard.html"
+                style="padding-right: 15px;">WELFARE</a></li>
+        <li><a href="https://www.iitg.ac.in/stud/gymkhana/hostelBoard/hab.html">HAB</a>
+        </li>
+    </div>
+</nav>
+<div style="display: flex; padding-left: 70px;">
+    <h1 class="u-custom-font4 u-font-oswald4" style="padding-bottom: 46px;padding-top: 100px;">
         Faculty Executive Body
     </h1>
     <div class="container3">
@@ -54,7 +73,7 @@
 <h1 class="u-custom-font4 u-font-oswald4" style="padding-top: 20px; padding-bottom: 40px;">
     Student Executive Body</h1>
 
-<div class="container4">
+<div class="container4" style="padding-left: 100px;">
 
     <div class="at-grid4" data-column="3">
         {% for members in reps.all %}
@@ -93,7 +112,7 @@
 </div>
 
 <!-- Undergraduate Senators -->
-<h1 class="u-custom-font4 u-font-oswald4" style="padding-top: 20px; padding-bottom: 40px;">
+<h1 class="u-custom-font4 u-font-oswald4" style="padding-top: 20px; padding-bottom: 40px;padding-left: 194px;">
     Undergraduate Senators</h1>
 
 <div class="container4">
