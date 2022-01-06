@@ -10,12 +10,14 @@ from django.contrib import messages
 def home(request):
     try:
         sr = Senator.objects.all().filter(tag=1)
+        images = Gallery.objects.all()
         ads = Senator.objects.all().filter(tag=0)
     except Senator.DoesNotExist:
         sr = None
     context = {
         'reps': sr,
-        'dean': ads
+        'dean': ads,
+        'images': images
     }
     return render(request, 'Home/home.html',context)
 
@@ -68,17 +70,11 @@ def hab(request):
 
 def gallery(request):
     try:
-        pics1 = Gallery.objects.all().filter(tag=1)
-        pics2 = Gallery.objects.all().filter(tag=2)
-        pics3 = Gallery.objects.all().filter(tag=3)
-        pics4 = Gallery.objects.all().filter(tag=4)
+          images = Gallery.objects.all()
     except Gallery.DoesNotExist:
         pics1 = None
     context = {
-        'img1': pics1,
-        'img2': pics2,
-        'img3': pics3,
-        'img4': pics4
+        'images': images
     }
     return render(request, 'Home/gallery.html', context)
 
