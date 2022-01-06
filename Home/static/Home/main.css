@@ -1,7 +1,7 @@
-    /*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
+/* tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 
-/*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
-
+/*
+ modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
 ========
@@ -171903,8 +171903,4 @@ py
   .\32xl\:animate-bounce {
     animation: bounce 1s infinite;
   }
-}
-.blocka{
-    background-image: url(% 'static/teamsbg.png' %);
-
 }
