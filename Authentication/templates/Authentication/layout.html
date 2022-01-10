@@ -16,8 +16,8 @@
       href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
     />
     {% load static %}
-    <link rel="stylesheet" href="{% static 'auth/app.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'auth/swc.png' %}">
+    <link rel="stylesheet" href="{% static 'Authentication/app.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'Authentication/swc.png' %}">
   </head>
 
   <body>
@@ -35,10 +35,16 @@
             </li>
             {% if user.is_authenticated %}
               <li>
-                <a class="nav-link{% if request.resolver_match.view_name == 'formDetails' %} active{% endif %}" href="{% url 'senate-form' %}">Forms</a>
+                <a class="nav-link{% if request.resolver_match.view_name == 'AboutDetails' %} active{% endif %}" href="{% url 'about-form' %}">Abouts</a>
               </li>
               <li>
                 <a class="nav-link{% if request.resolver_match.view_name == 'MinuteDetails' %} active{% endif %}" href="{% url 'minute-form' %}">Minutes</a>
+              </li>
+              <li>
+                <a class="nav-link{% if request.resolver_match.view_name == 'GalleryDetails' %} active{% endif %}" href="{% url 'gallery-form' %}">Gallery</a>
+              </li>
+              <li>
+                <a class="nav-link{% if request.resolver_match.view_name == 'SenatorDetails' %} active{% endif %}" href="{% url 'senator-form' %}">Senator</a>
               </li>
             {% endif %}
           </ul>
@@ -54,7 +60,7 @@
                   {% if user.avatar %}
                     <img src="{{ user.avatar }}" class="rounded-circle align-self-center mr-2" style="width: 32px;">
                   {% else %}
-                    <img src="{% static 'auth/no-profile-photo.png' %}" class="rounded-circle align-self-center mr-2" style="width: 32px;">
+                    <img src="{% static 'Authentication/no-profile-photo.png' %}" class="rounded-circle align-self-center mr-2" style="width: 32px;">
                   {% endif %}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
