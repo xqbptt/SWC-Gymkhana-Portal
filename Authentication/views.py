@@ -73,11 +73,11 @@ def callback(request):
   except:
     user_object = User.objects.create(username = user['displayName'], email = user['mail'])
     user_object.save()
-  if user_object is not None: 
-    login(request,user_object)  # we call the login function to bind a user to current session, this way they get automatically logged in to django admin website
-  user_object.is_staff = True # we also need to set is_staff permission to true so that they have access to admin dashboard
-  user_object.save()
-  return HttpResponseRedirect(reverse('admin:index')) # now we just redirect to admin view, search for httpresponseredirect on django docs for more info.
+  #if user_object is not None: 
+    #login(request,user_object)  # we call the login function to bind a user to current session, this way they get automatically logged in to django admin website
+  #user_object.is_staff = True # we also need to set is_staff permission to true so that they have access to admin dashboard
+  #user_object.save()
+  return HttpResponseRedirect(reverse('home')) # now we just redirect to admin view, search for httpresponseredirect on django docs for more info.
 # </CallbackViewSnippet>
 
 # <NewEventViewSnippet>
@@ -185,16 +185,16 @@ def teamDetails(request):
     i= i+1
   return JsonResponse(team_dic)
 
-def formDetails(request):
+def AboutDetails(request):
   if request.method == 'POST':
-      form = forms.AdditionForm(request.POST, request.FILES)
+      form = forms.AboutForm(request.POST, request.FILES)
       if form.is_valid():
           form.save()
           messages.success(request, f'Post Successful')
           return redirect('home')
   else:
-      form = forms.AdditionForm()
-  return render(request, 'auth/newAddition.html', {'form': form})
+      form = forms.AboutForm()
+  return render(request, 'Authentication/newAddition.html', {'form': form})
 
 def MinuteDetails(request):
   if request.method == 'POST':
@@ -205,4 +205,26 @@ def MinuteDetails(request):
           return redirect('home')
   else:
       form = forms.MinuteForm()
-  return render(request, 'auth/minuteAddition.html', {'form': form})
+  return render(request, 'Authentication/minuteAddition.html', {'form': form})
+
+def GalleryDetails(request):
+  if request.method == 'POST':
+      form = forms.GalleryForm(request.POST, request.FILES)
+      if form.is_valid():
+          form.save()
+          messages.success(request, f'Post Successful')
+          return redirect('home')
+  else:
+      form = forms.GalleryForm()
+  return render(request, 'Authentication/galleryAddition.html', {'form': form})
+
+def SenatorDetails(request):
+  if request.method == 'POST':
+      form = forms.SenatorForm(request.POST, request.FILES)
+      if form.is_valid():
+          form.save()
+          messages.success(request, f'Post Successful')
+          return redirect('home')
+  else:
+      form = forms.SenatorForm()
+  return render(request, 'Authentication/senatorAddition.html', {'form': form})

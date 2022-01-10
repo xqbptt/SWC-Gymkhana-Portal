@@ -28,7 +28,7 @@ class Senator(models.Model):
     facebook = models.CharField(max_length=100)
     email = models.EmailField()
     address = models.TextField()
-    tag = models.IntegerField(null=True)
+    tag = models.IntegerField(null=True,help_text="0 for adosa,1 for senators,2 for UGs,3 for PGs,4 for Girls")
     def __str__(self):
         return self.name
 
