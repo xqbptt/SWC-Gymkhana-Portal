@@ -66,6 +66,11 @@ body {
 		'Segoe UI Emoji';
 }
 
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+
 /*
 Grouping content
 ================
@@ -541,6 +546,7 @@ video {
 
 .container {
   width: 100%;
+  padding: 0;
 }
 
 @media (min-width: 640px) {
@@ -570,6 +576,12 @@ video {
 @media (min-width: 1536px) {
   .container {
     max-width: 1536px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1920px;
   }
 }
 
