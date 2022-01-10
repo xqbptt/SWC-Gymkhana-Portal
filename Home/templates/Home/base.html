@@ -1,1023 +1,781 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<!-- Required meta tags -->
-		<meta charset="utf-8" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- Bootstrap CSS -->
-		<link
-			id="u-theme-google-font"
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
-		/>
-		<link
-			id="u-page-google-font"
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Roboto+Slab:100,200,300,400,500,600,700,800,900"
-		/>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
 
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic"
-		/>
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-		/>
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="{% static 'Home/styles.css' %}"
-		/>
-		<link rel="stylesheet" href="{% static 'Home/header.css' %}" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-			integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			href="{% static 'Home/images/logo.png' %}"
-		/>
-		<link rel="stylesheet" href="{% static 'Home/main.css' %}" />
-	</head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Bootstrap CSS -->
+	<link id="u-theme-google-font" rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" />
+	<link id="u-page-google-font" rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Roboto+Slab:100,200,300,400,500,600,700,800,900" />
 
-	<body style="background-color: rgb(255, 255, 255)">
-		<div class="header bg-white py-1">
-			<div class="container flex justify-center mb-1.5 mt-0.5 ml-auto mr-auto">
-				<span class="float-left"
-					><img
-						src="data:image/png;base64,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"
-						alt="1200px-IIT-Guwahati-Logo-1"
-						style="border: 0px" /></span
-				><span class="float-left pl-2 flex items-center">
-					<h1 class="text-sm">
-						STUDENTS' AFFAIRS SECTION, INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI
-					</h1>
-				</span>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+	<link rel="stylesheet" type="text/css" href="{% static 'Home/styles.css' %}" />
+	<link rel="stylesheet" href="{% static 'Home/header.css' %}" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+	<link rel="icon" type="image/png" href="{% static 'Home/images/logo.png' %}" />
+	<link rel="stylesheet" href="{% static 'Home/main.css' %}" />
+</head>
+
+<body style="background-color: rgb(255, 255, 255)">
+	<div class="header bg-white py-1">
+		<div class="container flex justify-center mb-1.5 mt-0.5 ml-auto mr-auto">
+			<span class="float-left"><img
+					src="data:image/png;base64,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"
+					alt="1200px-IIT-Guwahati-Logo-1" style="border: 0px" /></span><span
+				class="float-left pl-2 flex items-center">
+				<h1 class="text-sm">
+					STUDENTS' AFFAIRS SECTION, INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI
+				</h1>
+			</span>
+		</div>
+	</div>
+	<div id="TopNav" class="mt-2 flex md:justify-between w-full" style="z-index: 1000">
+		<div class="flex flex-grow justify-between" id="nav-content">
+			<div class="null flex-grow flex items-center justify-center text-sm font-mono h-20 px-2 text-white bg-blue-600 hover:bg-blue-600 font-bold text-xs"
+				style="cursor: pointer">
+				<li class="Ma">
+					<div class="myDIV">
+						<p class="text-center text-sm text-blue-600">GYMKHANA COUNCIL</p>
+					</div>
+					<div class="hide">
+						<div class="card">
+							<div class="row g-0">
+								<div class="col-md-4">
+									<img src="#" class="img-fluid rounded-start" alt="..." style="height: 100px;">
+								</div>
+								<div class="col-md-8">
+									<div class="card-body">
+										<h5 class="card-title">Cultural Board</h5>
+										<p class="card-text">IIT G is packed with culture in every sense of the word.
+											You’ll not only find
+											plenty of people who share the same interests as you, but you’ll also have
+											the opportunity to
+											break out and try something different. A perfect platform for the campus
+											junta to come forward
+											and showcase their talents..</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
+				style="cursor: pointer">
+				<li class="Ma">
+					<div class="myDIV">
+						<p class="text-center text-sm text-blue-600">HOSTEL AFFAIR BOARD</p>
+					</div>
+					<div class="hide">
+						<div class="card">
+							<div class="row g-0">
+								<div class="col-md-4">
+									<img src="#" class="img-fluid rounded-start" alt="..." style="height: 100px;">
+								</div>
+								<div class="col-md-8">
+									<div class="card-body">
+										<h5 class="card-title">Cultural Board</h5>
+										<p class="card-text">IIT G is packed with culture in every sense of the word.
+											You’ll not only find
+											plenty of people who share the same interests as you, but you’ll also have
+											the opportunity to
+											break out and try something different. A perfect platform for the campus
+											junta to come forward
+											and showcase their talents..</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
+				style="cursor: pointer">
+				<li class="Ma">
+					<div class="myDIV">
+						<p class="text-center text-sm text-blue-600">SPORTS BOARDS</p>
+					</div>
+					<div class="hide">
+						<div class="card">
+							<div class="row g-0">
+								<div class="col-md-4">
+									<img src="#" class="img-fluid rounded-start" alt="..." style="height: 100px;">
+								</div>
+								<div class="col-md-8">
+									<div class="card-body">
+										<h5 class="card-title">Cultural Board</h5>
+										<p class="card-text">IIT G is packed with culture in every sense of the word.
+											You’ll not only find
+											plenty of people who share the same interests as you, but you’ll also have
+											the opportunity to
+											break out and try something different. A perfect platform for the campus
+											junta to come forward
+											and showcase their talents..</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
+				style="cursor: pointer">
+				<li class="Ma">
+					<div class="myDIV">
+						<p class="text-center text-sm text-blue-600">TECHNICAL BOARD</p>
+					</div>
+					<div class="hide">
+						<div class="card">
+							<div class="row g-0">
+								<div class="col-md-4">
+									<img src="#" class="img-fluid rounded-start" alt="..." style="height: 100px;">
+								</div>
+								<div class="col-md-8">
+									<div class="card-body">
+										<h5 class="card-title">Cultural Board</h5>
+										<p class="card-text">IIT G is packed with culture in every sense of the word.
+											You’ll not only find
+											plenty of people who share the same interests as you, but you’ll also have
+											the opportunity to
+											break out and try something different. A perfect platform for the campus
+											junta to come forward
+											and showcase their talents..</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
+				style="cursor: pointer">
+				<li class="Ma">
+					<div class="myDIV">
+						<p class="text-center text-sm text-blue-600">CULTURAL BOARD</p>
+					</div>
+					<div class="hide">
+						<div class="card">
+							<div class="row g-0">
+								<div class="col-md-4">
+									<img src="#" class="img-fluid rounded-start" alt="..." style="height: 100px;">
+								</div>
+								<div class="col-md-8">
+									<div class="card-body">
+										<h5 class="card-title">Cultural Board</h5>
+										<p class="card-text">IIT G is packed with culture in every sense of the word.
+											You’ll not only find
+											plenty of people who share the same interests as you, but you’ll also have
+											the opportunity to
+											break out and try something different. A perfect platform for the campus
+											junta to come forward
+											and showcase their talents..</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
+				style="cursor: pointer">
+				<li class="Ma">
+					<div class="myDIV">
+						<p class="text-center text-sm text-blue-600">WELFARE BOARD</p>
+					</div>
+					<div class="hide">
+						<div class="card">
+							<div class="row g-0">
+								<div class="col-md-4">
+									<img src="#" class="img-fluid rounded-start" alt="..." style="height: 100px;">
+								</div>
+								<div class="col-md-8">
+									<div class="card-body">
+										<h5 class="card-title">Cultural Board</h5>
+										<p class="card-text">IIT G is packed with culture in every sense of the word.
+											You’ll not only find
+											plenty of people who share the same interests as you, but you’ll also have
+											the opportunity to
+											break out and try something different. A perfect platform for the campus
+											junta to come forward
+											and showcase their talents..</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
+				style="cursor: pointer">
+				<li class="Ma">
+					<div class="myDIV">
+						<p class="text-center text-sm text-blue-600">SWC</p>
+					</div>
+					<div class="hide">
+						<div class="card">
+							<div class="row g-0">
+								<div class="col-md-4">
+									<img src="#" class="img-fluid rounded-start" alt="..." style="height: 100px;">
+								</div>
+								<div class="col-md-8">
+									<div class="card-body">
+										<h5 class="card-title">Cultural Board</h5>
+										<p class="card-text">IIT G is packed with culture in every sense of the word.
+											You’ll not only find
+											plenty of people who share the same interests as you, but you’ll also have
+											the opportunity to
+											break out and try something different. A perfect platform for the campus
+											junta to come forward
+											and showcase their talents..</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
 			</div>
 		</div>
-		<div
-			id="TopNav"
-			class="mt-2 flex md:justify-between w-full"
-			style="z-index: 1000"
-		>
-			<div class="flex flex-grow justify-between" id="nav-content">
-				<div
-					class="null flex-grow flex items-center justify-center text-sm font-mono h-20 px-2 text-white bg-blue-600 hover:bg-blue-600 font-bold text-xs"
-					style="cursor: pointer"
-				>
-					<p class="text-center text-base">GYMKHANA COUNCIL</p>
-				</div>
-				<div
-					class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
-					style="cursor: pointer"
-				>
-					<p class="text-center text-sm text-blue-600">HOSTEL AFFAIR BOARD</p>
-				</div>
-				<div
-					class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
-					style="cursor: pointer"
-				>
-					<p class="text-center text-sm text-blue-600">SPORTS BOARD</p>
-				</div>
-				<div
-					class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
-					style="cursor: pointer"
-				>
-					<p class="text-center text-sm text-blue-600">TECHNICAL BOARD</p>
-				</div>
-				<div
-					class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
-					style="cursor: pointer"
-				>
-					<p class="text-center text-sm text-blue-600">CULTURAL BOARD</p>
-				</div>
-				<div
-					class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
-					style="cursor: pointer"
-				>
-					<p class="text-center text-sm text-blue-600">WELFARE BOARD</p>
-				</div>
-				<div
-					class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
-					style="cursor: pointer"
-				>
-					<p class="text-center text-sm text-blue-600">SWC</p>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			{% if messages %} {% for message in messages %}
-			<div class="alert alert-{{message.tags}}">{{message}}</div>
-			{% endfor %} {% endif %}
-			<!--
+	</div>
+
+	<div class="container">
+		{% if messages %} {% for message in messages %}
+		<div class="alert alert-{{message.tags}}">{{message}}</div>
+		{% endfor %} {% endif %}
+		<!--
         {% block gallery %}
         {% endblock gallery %}
         --->
-			{% block content %} {% endblock content %}
-		</div>
+		{% block content %} {% endblock content %}
+	</div>
 
-		<!-- Option 2: Separate Popper and Bootstrap JS -->
-		<script
-			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-			integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-			crossorigin="anonymous"
-		></script>
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+		integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+		crossorigin="anonymous"></script>
 
-		<!-- cards -->
-		<div class="hidden md:block">
-			<div
-				class="pb-20 h-96 blocka"
-				style="
+	<!-- cards -->
+	<div class="hidden md:block">
+		<div class="pb-20 h-96 blocka" style="
 					background-image: url(https://raw.githubusercontent.com/swciitg/SA_Portal_2021/main/frontend/src/assets/teamsbg.png);
-				"
-			>
-				<div
-					class="text-xl sm:text-2xl sm:ml-8 md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28"
-				>
-					Team Structure
-				</div>
-				<div class="sm:ml-10 md:ml-36 pt-4">
-					<button
-						id="sa,wellbeing,personality,acf"
-						class="bg-black text-white px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none"
-					>
-						Students' Affairs Functionaries</button
-					><button
-						id="visitart"
-						class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none"
-					>
-						Board Functionaries</button
-					><button
-						id="sgym"
-						class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none"
-					>
-						Students' Gymkhana</button
-					><button
-						id="saf"
-						class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none"
-					>
-						Students' Affairs Staff</button
-					><button
-						id="gymkhana"
-						class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none"
-					>
-						Gymkhana Office</button
-					><button
-						id="counselling"
-						class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none"
-					>
-						Counselling Cell</button
-					><button
-						id="newsac"
-						class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none"
-					>
-						New SAC Building</button
-					><button
-						id="hostels"
-						class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none"
-					>
-						Hostels
-					</button>
-				</div>
+				">
+			<div class="text-xl sm:text-2xl sm:ml-8 md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28">
+				Team Structure
+			</div>
+			<div class="sm:ml-10 md:ml-36 pt-4">
+				<button id="sa,wellbeing,personality,acf"
+					class="bg-black text-white px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none">
+					Students' Affairs Functionaries</button><button id="visitart"
+					class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none">
+					Board Functionaries</button><button id="sgym"
+					class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none">
+					Students' Gymkhana</button><button id="saf"
+					class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none">
+					Students' Affairs Staff</button><button id="gymkhana"
+					class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none">
+					Gymkhana Office</button><button id="counselling"
+					class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none">
+					Counselling Cell</button><button id="newsac"
+					class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none">
+					New SAC Building</button><button id="hostels"
+					class="bg-white text-black px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none">
+					Hostels
+				</button>
 			</div>
 		</div>
+	</div>
 
-		<div class="block md:hidden flex justify-between pt-8 mx-4">
-			<div class="text-xl font-semibold py-2">Team Structure</div>
-			<div class="relative inline-block">
-				<select class="border-2 bg-black text-white rounded-md py-2">
-					<option
-						class="bg-white text-black text-xs"
-						value='["sa","wellbeing","personality","acf"]'
-					>
-						Students' Affairs Functionaries
-					</option>
-					<option class="bg-white text-black text-xs" value='["visitart"]'>
-						Board Functionaries
-					</option>
-					<option class="bg-white text-black text-xs" value='["sgym"]'>
-						Students' Gymkhana
-					</option>
-					<option class="bg-white text-black text-xs" value='["saf"]'>
-						Students' Affairs Staff
-					</option>
-					<option class="bg-white text-black text-xs" value='["gymkhana"]'>
-						Gymkhana Office
-					</option>
-					<option class="bg-white text-black text-xs" value='["counselling"]'>
-						Counselling Cell
-					</option>
-					<option class="bg-white text-black text-xs" value='["newsac"]'>
-						New SAC Building
-					</option>
-					<option class="bg-white text-black text-xs" value='["hostels"]'>
-						Hostels
-					</option>
-				</select>
-			</div>
+	<div class="block md:hidden flex justify-between pt-8 mx-4">
+		<div class="text-xl font-semibold py-2">Team Structure</div>
+		<div class="relative inline-block">
+			<select class="border-2 bg-black text-white rounded-md py-2">
+				<option class="bg-white text-black text-xs" value='["sa","wellbeing","personality","acf"]'>
+					Students' Affairs Functionaries
+				</option>
+				<option class="bg-white text-black text-xs" value='["visitart"]'>
+					Board Functionaries
+				</option>
+				<option class="bg-white text-black text-xs" value='["sgym"]'>
+					Students' Gymkhana
+				</option>
+				<option class="bg-white text-black text-xs" value='["saf"]'>
+					Students' Affairs Staff
+				</option>
+				<option class="bg-white text-black text-xs" value='["gymkhana"]'>
+					Gymkhana Office
+				</option>
+				<option class="bg-white text-black text-xs" value='["counselling"]'>
+					Counselling Cell
+				</option>
+				<option class="bg-white text-black text-xs" value='["newsac"]'>
+					New SAC Building
+				</option>
+				<option class="bg-white text-black text-xs" value='["hostels"]'>
+					Hostels
+				</option>
+			</select>
 		</div>
+	</div>
 
-		<div class="md:relative md:-top-20 lg:-top-32">
-			<div class="md:flex md:flex-wrap justify-center">
-				<div
-					id="612c90f0b00d46714ad4c576"
-					class="fixed z-50 inset-0 overflow-y-auto hidden"
-					aria-labelledby="modal-title"
-					role="dialog"
-					aria-modal="true"
-					style="z-index: 5000"
-				>
+	<div class="md:relative md:-top-20 lg:-top-32">
+		<div class="md:flex md:flex-wrap justify-center">
+			<div id="612c90f0b00d46714ad4c576" class="fixed z-50 inset-0 overflow-y-auto hidden"
+				aria-labelledby="modal-title" role="dialog" aria-modal="true" style="z-index: 5000">
+				<div class="flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+					<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+					<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+						​
+					</span>
 					<div
-						class="flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-					>
-						<div
-							class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-							aria-hidden="true"
-						></div>
-						<span
-							class="hidden sm:inline-block sm:align-middle sm:h-screen"
-							aria-hidden="true"
-						>
-							​
-						</span>
-						<div
-							class="inline-block align-bottom md:align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all mb-2 w-full sm:w-9/12 md:w-3/4 lg:w-1/2"
-						>
-							<div class="hidden md:block">
-								<div class="flex justify-center space-x-5 m-7">
-									<div
-										class="overflow-hidden text-black rounded-md w-1/2"
-										style="height: 450px"
-									>
-										<div class="bg-gray-200 rounded-md">
-											<img
-												src="https://intranet.iitg.ac.in/sa/api/team/sa/612c90f0b00d46714ad4c576"
-												alt="ProfilePic"
-												class="w-full object-contain"
-												style="height: 300px"
-											/>
-										</div>
-										<div class="ml-3.5 text-2xl font-semibold mt-4">
-											Prof. V.V. Dasu
-										</div>
-										<div class="ml-3.5 text-lg mt-2 mb-2">
-											Dean of Students’ Affairs
-										</div>
-										<svg
-											class="w-full"
-											width="200"
-											height="1"
-											viewBox="0 0 420 1"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<line
-												x1="0.5"
-												y1="0.5"
-												x2="419.5"
-												y2="0.500031"
-												stroke="black"
-												stroke-linecap="round"
-											></line>
-										</svg>
-										<div class="flex justify-between mx-3.5 my-2">
-											<div class="text-sm">dos@iitg.ac.in</div>
-											<div class="text-sm">+91-361-258 2083</div>
-										</div>
+						class="inline-block align-bottom md:align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all mb-2 w-full sm:w-9/12 md:w-3/4 lg:w-1/2">
+						<div class="hidden md:block">
+							<div class="flex justify-center space-x-5 m-7">
+								<div class="overflow-hidden text-black rounded-md w-1/2" style="height: 450px">
+									<div class="bg-gray-200 rounded-md">
+										<img src="https://intranet.iitg.ac.in/sa/api/team/sa/612c90f0b00d46714ad4c576"
+											alt="ProfilePic" class="w-full object-contain" style="height: 300px" />
 									</div>
-									<div
-										class="w-1/2 hidden md:block overflow-hidden mx-4 text-sm"
-									>
-										<div class="flex justify-end mb-2 text-sm">
-											<button>
-												<svg
-													width="32"
-													height="32"
-													viewBox="0 0 32 32"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path
-														fill-rule="evenodd"
-														clip-rule="evenodd"
-														d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
-														fill="#1E2532"
-													></path>
-												</svg>
-											</button>
-										</div>
-										.
+									<div class="ml-3.5 text-2xl font-semibold mt-4">
+										Prof. V.V. Dasu
+									</div>
+									<div class="ml-3.5 text-lg mt-2 mb-2">
+										Dean of Students’ Affairs
+									</div>
+									<svg class="w-full" width="200" height="1" viewBox="0 0 420 1" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<line x1="0.5" y1="0.5" x2="419.5" y2="0.500031" stroke="black"
+											stroke-linecap="round"></line>
+									</svg>
+									<div class="flex justify-between mx-3.5 my-2">
+										<div class="text-sm">dos@iitg.ac.in</div>
+										<div class="text-sm">+91-361-258 2083</div>
 									</div>
 								</div>
-							</div>
-							<div class="flex-column bg-white block md:hidden w-auto px-2">
-								<div class="flex justify-end mt-2 mr-2">
-									<button>
-										<svg
-											width="32"
-											height="32"
-											viewBox="0 0 32 32"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												fill-rule="evenodd"
-												clip-rule="evenodd"
-												d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
-												fill="#1E2532"
-											></path>
-										</svg>
-									</button>
-								</div>
-								<div class="flex justify-center">
-									<div class="mt-4 rounded-md" style="width: 320px">
-										<div class="bg-gray-200 flex justify-center">
-											<img
-												src="https://intranet.iitg.ac.in/sa/api/team/sa/612c90f0b00d46714ad4c576"
-												alt="ProfilePic"
-												class="h-64 w-auto object-contain rounded-sm"
-											/>
-										</div>
-										<div class="h-16">
-											<div class="text-2xl pt-1">Prof. V.V. Dasu</div>
-											<div class="text-lg pt-1">Dean of Students’ Affairs</div>
-										</div>
-										<svg
-											class="w-full mt-3"
-											width="360"
-											height="1"
-											viewBox="0 0 360 1"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<line
-												x1="0.5"
-												y1="0.5"
-												x2="359.5"
-												y2="0.500031"
-												stroke="black"
-												stroke-linecap="round"
-											></line>
-										</svg>
-										<div class="h-20">
-											<div class="text-lg pt-1">dos@iitg.ac.in</div>
-											<div class="text-lg pt-1">+91-+91-361-258 2083</div>
-										</div>
+								<div class="w-1/2 hidden md:block overflow-hidden mx-4 text-sm">
+									<div class="flex justify-end mb-2 text-sm">
+										<button>
+											<svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
+													fill="#1E2532"></path>
+											</svg>
+										</button>
 									</div>
-								</div>
-								<div class="flex justify-center mt-2 text-sm text-center">
 									.
 								</div>
 							</div>
 						</div>
+						<div class="flex-column bg-white block md:hidden w-auto px-2">
+							<div class="flex justify-end mt-2 mr-2">
+								<button>
+									<svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
+											fill="#1E2532"></path>
+									</svg>
+								</button>
+							</div>
+							<div class="flex justify-center">
+								<div class="mt-4 rounded-md" style="width: 320px">
+									<div class="bg-gray-200 flex justify-center">
+										<img src="https://intranet.iitg.ac.in/sa/api/team/sa/612c90f0b00d46714ad4c576"
+											alt="ProfilePic" class="h-64 w-auto object-contain rounded-sm" />
+									</div>
+									<div class="h-16">
+										<div class="text-2xl pt-1">Prof. V.V. Dasu</div>
+										<div class="text-lg pt-1">Dean of Students’ Affairs</div>
+									</div>
+									<svg class="w-full mt-3" width="360" height="1" viewBox="0 0 360 1" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<line x1="0.5" y1="0.5" x2="359.5" y2="0.500031" stroke="black"
+											stroke-linecap="round"></line>
+									</svg>
+									<div class="h-20">
+										<div class="text-lg pt-1">dos@iitg.ac.in</div>
+										<div class="text-lg pt-1">+91-+91-361-258 2083</div>
+									</div>
+								</div>
+							</div>
+							<div class="flex justify-center mt-2 text-sm text-center">
+								.
+							</div>
+						</div>
 					</div>
 				</div>
-				<div
-					class="md:w-1/2 lg:w-1/4 hidden md:block overflow-hidden bg-blue-600 rounded-md mb-24 mx-4 cursor-pointer"
-					style="height: 450px"
-				>
-					<div class="bg-gray-200 rounded-md">
-						<img
-							src="https://intranet.iitg.ac.in/sa/api/team/sa/612c90f0b00d46714ad4c576"
-							alt="ProfilePic"
-							class="w-full object-contain"
-							style="height: 300px"
-						/>
+			</div>
+			<div class="md:w-1/2 lg:w-1/4 hidden md:block overflow-hidden bg-blue-600 rounded-md mb-24 mx-4 cursor-pointer"
+				style="height: 450px">
+				<div class="bg-gray-200 rounded-md">
+					<img src="https://intranet.iitg.ac.in/sa/api/team/sa/612c90f0b00d46714ad4c576" alt="ProfilePic"
+						class="w-full object-contain" style="height: 300px" />
+				</div>
+				<div class="ml-3.5 text-2xl text-white font-semibold mt-4">
+					Prof. V.V. Dasu
+				</div>
+				<div class="ml-3.5 text-lg text-white mt-2 mb-2">
+					Dean of Students’ Affairs
+				</div>
+				<svg class="w-full" width="200" height="1" viewBox="0 0 420 1" fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<line x1="0.5" y1="0.5" x2="419.5" y2="0.500031" stroke="white" stroke-linecap="round"></line>
+				</svg>
+				<div class="flex justify-between mx-3.5 my-2">
+					<div class="text-sm text-white">dos@iitg.ac.in</div>
+					<div class="text-sm text-white">+91-361-258 2083</div>
+				</div>
+			</div>
+			<div class="block md:hidden flex justify-center">
+				<div class="bg-blue-600 mt-8 rounded-md cursor-pointer" style="width: 320px">
+					<div class="bg-gray-200 flex justify-center">
+						<img src="https://intranet.iitg.ac.in/sa/api/team/sa/612c90f0b00d46714ad4c576" alt="ProfilePic"
+							class="h-64 w-auto object-contain rounded-sm" />
 					</div>
-					<div class="ml-3.5 text-2xl text-white font-semibold mt-4">
-						Prof. V.V. Dasu
+					<div class="h-16">
+						<div class="text-white text-2xl ml-4 pt-1">Prof. V.V. Dasu</div>
+						<div class="text-white text-lg ml-4 pt-1">
+							Dean of Students’ Affairs
+						</div>
 					</div>
-					<div class="ml-3.5 text-lg text-white mt-2 mb-2">
-						Dean of Students’ Affairs
-					</div>
-					<svg
-						class="w-full"
-						width="200"
-						height="1"
-						viewBox="0 0 420 1"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<line
-							x1="0.5"
-							y1="0.5"
-							x2="419.5"
-							y2="0.500031"
-							stroke="white"
-							stroke-linecap="round"
-						></line>
+					<svg class="w-full px-4 mt-3" width="360" height="1" viewBox="0 0 360 1" fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<line x1="0.5" y1="0.5" x2="359.5" y2="0.500031" stroke="white" stroke-linecap="round"></line>
 					</svg>
-					<div class="flex justify-between mx-3.5 my-2">
-						<div class="text-sm text-white">dos@iitg.ac.in</div>
-						<div class="text-sm text-white">+91-361-258 2083</div>
-					</div>
-				</div>
-				<div class="block md:hidden flex justify-center">
-					<div
-						class="bg-blue-600 mt-8 rounded-md cursor-pointer"
-						style="width: 320px"
-					>
-						<div class="bg-gray-200 flex justify-center">
-							<img
-								src="https://intranet.iitg.ac.in/sa/api/team/sa/612c90f0b00d46714ad4c576"
-								alt="ProfilePic"
-								class="h-64 w-auto object-contain rounded-sm"
-							/>
-						</div>
-						<div class="h-16">
-							<div class="text-white text-2xl ml-4 pt-1">Prof. V.V. Dasu</div>
-							<div class="text-white text-lg ml-4 pt-1">
-								Dean of Students’ Affairs
-							</div>
-						</div>
-						<svg
-							class="w-full px-4 mt-3"
-							width="360"
-							height="1"
-							viewBox="0 0 360 1"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<line
-								x1="0.5"
-								y1="0.5"
-								x2="359.5"
-								y2="0.500031"
-								stroke="white"
-								stroke-linecap="round"
-							></line>
-						</svg>
-						<div class="h-20">
-							<div class="text-white text-lg ml-4 pt-1">dos@iitg.ac.in</div>
-							<div class="text-white text-lg ml-4 pt-1">
-								+91-+91-361-258 2083
-							</div>
+					<div class="h-20">
+						<div class="text-white text-lg ml-4 pt-1">dos@iitg.ac.in</div>
+						<div class="text-white text-lg ml-4 pt-1">
+							+91-+91-361-258 2083
 						</div>
 					</div>
 				</div>
-				<div
-					id="60f01665c146ef0840a54acf"
-					class="fixed z-50 inset-0 overflow-y-auto hidden"
-					aria-labelledby="modal-title"
-					role="dialog"
-					aria-modal="true"
-					style="z-index: 5000"
-				>
+			</div>
+			<div id="60f01665c146ef0840a54acf" class="fixed z-50 inset-0 overflow-y-auto hidden"
+				aria-labelledby="modal-title" role="dialog" aria-modal="true" style="z-index: 5000">
+				<div class="flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+					<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+					<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+						​
+					</span>
 					<div
-						class="flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-					>
-						<div
-							class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-							aria-hidden="true"
-						></div>
-						<span
-							class="hidden sm:inline-block sm:align-middle sm:h-screen"
-							aria-hidden="true"
-						>
-							​
-						</span>
-						<div
-							class="inline-block align-bottom md:align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all mb-2 w-full sm:w-9/12 md:w-3/4 lg:w-1/2"
-						>
-							<div class="hidden md:block">
-								<div class="flex justify-center space-x-5 m-7">
-									<div
-										class="overflow-hidden text-black rounded-md w-1/2"
-										style="height: 450px"
-									>
-										<div class="bg-gray-200 rounded-md">
-											<img
-												src="https://intranet.iitg.ac.in/sa/api/team/sa/60f01665c146ef0840a54acf"
-												alt="ProfilePic"
-												class="w-full object-contain"
-												style="height: 300px"
-											/>
-										</div>
-										<div class="ml-3.5 text-2xl font-semibold mt-4">
-											Prof. Amaresh Dalal
-										</div>
-										<div class="ml-3.5 text-lg mt-2 mb-2">
+						class="inline-block align-bottom md:align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all mb-2 w-full sm:w-9/12 md:w-3/4 lg:w-1/2">
+						<div class="hidden md:block">
+							<div class="flex justify-center space-x-5 m-7">
+								<div class="overflow-hidden text-black rounded-md w-1/2" style="height: 450px">
+									<div class="bg-gray-200 rounded-md">
+										<img src="https://intranet.iitg.ac.in/sa/api/team/sa/60f01665c146ef0840a54acf"
+											alt="ProfilePic" class="w-full object-contain" style="height: 300px" />
+									</div>
+									<div class="ml-3.5 text-2xl font-semibold mt-4">
+										Prof. Amaresh Dalal
+									</div>
+									<div class="ml-3.5 text-lg mt-2 mb-2">
+										Associate Dean of Students' Affairs
+									</div>
+									<svg class="w-full" width="200" height="1" viewBox="0 0 420 1" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<line x1="0.5" y1="0.5" x2="419.5" y2="0.500031" stroke="black"
+											stroke-linecap="round"></line>
+									</svg>
+									<div class="flex justify-between mx-3.5 my-2">
+										<div class="text-sm">adosa_1@iitg.ac.in</div>
+										<div class="text-sm">+91 361 258 2929</div>
+									</div>
+								</div>
+								<div class="w-1/2 hidden md:block overflow-hidden mx-4 text-sm">
+									<div class="flex justify-end mb-2 text-sm">
+										<button>
+											<svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
+													fill="#1E2532"></path>
+											</svg>
+										</button>
+									</div>
+									.
+								</div>
+							</div>
+						</div>
+						<div class="flex-column bg-white block md:hidden w-auto px-2">
+							<div class="flex justify-end mt-2 mr-2">
+								<button>
+									<svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
+											fill="#1E2532"></path>
+									</svg>
+								</button>
+							</div>
+							<div class="flex justify-center">
+								<div class="mt-4 rounded-md" style="width: 320px">
+									<div class="bg-gray-200 flex justify-center">
+										<img src="https://intranet.iitg.ac.in/sa/api/team/sa/60f01665c146ef0840a54acf"
+											alt="ProfilePic" class="h-64 w-auto object-contain rounded-sm" />
+									</div>
+									<div class="h-16">
+										<div class="text-2xl pt-1">Prof. Amaresh Dalal</div>
+										<div class="text-lg pt-1">
 											Associate Dean of Students' Affairs
 										</div>
-										<svg
-											class="w-full"
-											width="200"
-											height="1"
-											viewBox="0 0 420 1"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<line
-												x1="0.5"
-												y1="0.5"
-												x2="419.5"
-												y2="0.500031"
-												stroke="black"
-												stroke-linecap="round"
-											></line>
-										</svg>
-										<div class="flex justify-between mx-3.5 my-2">
-											<div class="text-sm">adosa_1@iitg.ac.in</div>
-											<div class="text-sm">+91 361 258 2929</div>
-										</div>
 									</div>
-									<div
-										class="w-1/2 hidden md:block overflow-hidden mx-4 text-sm"
-									>
-										<div class="flex justify-end mb-2 text-sm">
-											<button>
-												<svg
-													width="32"
-													height="32"
-													viewBox="0 0 32 32"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path
-														fill-rule="evenodd"
-														clip-rule="evenodd"
-														d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
-														fill="#1E2532"
-													></path>
-												</svg>
-											</button>
-										</div>
-										.
+									<svg class="w-full mt-3" width="360" height="1" viewBox="0 0 360 1" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<line x1="0.5" y1="0.5" x2="359.5" y2="0.500031" stroke="black"
+											stroke-linecap="round"></line>
+									</svg>
+									<div class="h-20">
+										<div class="text-lg pt-1">adosa_1@iitg.ac.in</div>
+										<div class="text-lg pt-1">+91-+91 361 258 2929</div>
 									</div>
 								</div>
 							</div>
-							<div class="flex-column bg-white block md:hidden w-auto px-2">
-								<div class="flex justify-end mt-2 mr-2">
-									<button>
-										<svg
-											width="32"
-											height="32"
-											viewBox="0 0 32 32"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												fill-rule="evenodd"
-												clip-rule="evenodd"
-												d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
-												fill="#1E2532"
-											></path>
-										</svg>
-									</button>
-								</div>
-								<div class="flex justify-center">
-									<div class="mt-4 rounded-md" style="width: 320px">
-										<div class="bg-gray-200 flex justify-center">
-											<img
-												src="https://intranet.iitg.ac.in/sa/api/team/sa/60f01665c146ef0840a54acf"
-												alt="ProfilePic"
-												class="h-64 w-auto object-contain rounded-sm"
-											/>
-										</div>
-										<div class="h-16">
-											<div class="text-2xl pt-1">Prof. Amaresh Dalal</div>
-											<div class="text-lg pt-1">
-												Associate Dean of Students' Affairs
-											</div>
-										</div>
-										<svg
-											class="w-full mt-3"
-											width="360"
-											height="1"
-											viewBox="0 0 360 1"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<line
-												x1="0.5"
-												y1="0.5"
-												x2="359.5"
-												y2="0.500031"
-												stroke="black"
-												stroke-linecap="round"
-											></line>
-										</svg>
-										<div class="h-20">
-											<div class="text-lg pt-1">adosa_1@iitg.ac.in</div>
-											<div class="text-lg pt-1">+91-+91 361 258 2929</div>
-										</div>
+							<div class="flex justify-center mt-2 text-sm text-center">
+								.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="md:w-1/2 lg:w-1/4 hidden md:block overflow-hidden bg-blue-600 rounded-md mb-24 mx-4 cursor-pointer"
+				style="height: 450px">
+				<div class="bg-gray-200 rounded-md">
+					<img src="https://intranet.iitg.ac.in/sa/api/team/sa/60f01665c146ef0840a54acf" alt="ProfilePic"
+						class="w-full object-contain" style="height: 300px" />
+				</div>
+				<div class="ml-3.5 text-2xl text-white font-semibold mt-4">
+					Prof. Amaresh Dalal
+				</div>
+				<div class="ml-3.5 text-lg text-white mt-2 mb-2">
+					Associate Dean of Students' Affairs
+				</div>
+				<svg class="w-full" width="200" height="1" viewBox="0 0 420 1" fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<line x1="0.5" y1="0.5" x2="419.5" y2="0.500031" stroke="white" stroke-linecap="round"></line>
+				</svg>
+				<div class="flex justify-between mx-3.5 my-2">
+					<div class="text-sm text-white">adosa_1@iitg.ac.in</div>
+					<div class="text-sm text-white">+91 361 258 2929</div>
+				</div>
+			</div>
+			<div class="block md:hidden flex justify-center">
+				<div class="bg-blue-600 mt-8 rounded-md cursor-pointer" style="width: 320px">
+					<div class="bg-gray-200 flex justify-center">
+						<img src="https://intranet.iitg.ac.in/sa/api/team/sa/60f01665c146ef0840a54acf" alt="ProfilePic"
+							class="h-64 w-auto object-contain rounded-sm" />
+					</div>
+					<div class="h-16">
+						<div class="text-white text-2xl ml-4 pt-1">
+							Prof. Amaresh Dalal
+						</div>
+						<div class="text-white text-lg ml-4 pt-1">
+							Associate Dean of Students' Affairs
+						</div>
+					</div>
+					<svg class="w-full px-4 mt-3" width="360" height="1" viewBox="0 0 360 1" fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<line x1="0.5" y1="0.5" x2="359.5" y2="0.500031" stroke="white" stroke-linecap="round"></line>
+					</svg>
+					<div class="h-20">
+						<div class="text-white text-lg ml-4 pt-1">adosa_1@iitg.ac.in</div>
+						<div class="text-white text-lg ml-4 pt-1">
+							+91-+91 361 258 2929
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="60f0175cc146ef0840a54ad0" class="fixed z-50 inset-0 overflow-y-auto hidden"
+				aria-labelledby="modal-title" role="dialog" aria-modal="true" style="z-index: 5000">
+				<div class="flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+					<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+					<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+						​
+					</span>
+					<div
+						class="inline-block align-bottom md:align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all mb-2 w-full sm:w-9/12 md:w-3/4 lg:w-1/2">
+						<div class="hidden md:block">
+							<div class="flex justify-center space-x-5 m-7">
+								<div class="overflow-hidden text-black rounded-md w-1/2" style="height: 450px">
+									<div class="bg-gray-200 rounded-md">
+										<img src="https://intranet.iitg.ac.in/sa/api/team/sa/60f0175cc146ef0840a54ad0"
+											alt="ProfilePic" class="w-full object-contain" style="height: 300px" />
+									</div>
+									<div class="ml-3.5 text-2xl font-semibold mt-4">
+										Prof. Anamika Barua
+									</div>
+									<div class="ml-3.5 text-lg mt-2 mb-2">
+										Associate Dean of Students' Affairs
+									</div>
+									<svg class="w-full" width="200" height="1" viewBox="0 0 420 1" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<line x1="0.5" y1="0.5" x2="419.5" y2="0.500031" stroke="black"
+											stroke-linecap="round"></line>
+									</svg>
+									<div class="flex justify-between mx-3.5 my-2">
+										<div class="text-sm">adosa_2@iitg.ac.in</div>
+										<div class="text-sm">+91 361 258 2928</div>
 									</div>
 								</div>
-								<div class="flex justify-center mt-2 text-sm text-center">
+								<div class="w-1/2 hidden md:block overflow-hidden mx-4 text-sm">
+									<div class="flex justify-end mb-2 text-sm">
+										<button>
+											<svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
+													fill="#1E2532"></path>
+											</svg>
+										</button>
+									</div>
 									.
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div
-					class="md:w-1/2 lg:w-1/4 hidden md:block overflow-hidden bg-blue-600 rounded-md mb-24 mx-4 cursor-pointer"
-					style="height: 450px"
-				>
-					<div class="bg-gray-200 rounded-md">
-						<img
-							src="https://intranet.iitg.ac.in/sa/api/team/sa/60f01665c146ef0840a54acf"
-							alt="ProfilePic"
-							class="w-full object-contain"
-							style="height: 300px"
-						/>
-					</div>
-					<div class="ml-3.5 text-2xl text-white font-semibold mt-4">
-						Prof. Amaresh Dalal
-					</div>
-					<div class="ml-3.5 text-lg text-white mt-2 mb-2">
-						Associate Dean of Students' Affairs
-					</div>
-					<svg
-						class="w-full"
-						width="200"
-						height="1"
-						viewBox="0 0 420 1"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<line
-							x1="0.5"
-							y1="0.5"
-							x2="419.5"
-							y2="0.500031"
-							stroke="white"
-							stroke-linecap="round"
-						></line>
-					</svg>
-					<div class="flex justify-between mx-3.5 my-2">
-						<div class="text-sm text-white">adosa_1@iitg.ac.in</div>
-						<div class="text-sm text-white">+91 361 258 2929</div>
-					</div>
-				</div>
-				<div class="block md:hidden flex justify-center">
-					<div
-						class="bg-blue-600 mt-8 rounded-md cursor-pointer"
-						style="width: 320px"
-					>
-						<div class="bg-gray-200 flex justify-center">
-							<img
-								src="https://intranet.iitg.ac.in/sa/api/team/sa/60f01665c146ef0840a54acf"
-								alt="ProfilePic"
-								class="h-64 w-auto object-contain rounded-sm"
-							/>
-						</div>
-						<div class="h-16">
-							<div class="text-white text-2xl ml-4 pt-1">
-								Prof. Amaresh Dalal
+						<div class="flex-column bg-white block md:hidden w-auto px-2">
+							<div class="flex justify-end mt-2 mr-2">
+								<button>
+									<svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
+											fill="#1E2532"></path>
+									</svg>
+								</button>
 							</div>
-							<div class="text-white text-lg ml-4 pt-1">
-								Associate Dean of Students' Affairs
-							</div>
-						</div>
-						<svg
-							class="w-full px-4 mt-3"
-							width="360"
-							height="1"
-							viewBox="0 0 360 1"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<line
-								x1="0.5"
-								y1="0.5"
-								x2="359.5"
-								y2="0.500031"
-								stroke="white"
-								stroke-linecap="round"
-							></line>
-						</svg>
-						<div class="h-20">
-							<div class="text-white text-lg ml-4 pt-1">adosa_1@iitg.ac.in</div>
-							<div class="text-white text-lg ml-4 pt-1">
-								+91-+91 361 258 2929
-							</div>
-						</div>
-					</div>
-				</div>
-				<div
-					id="60f0175cc146ef0840a54ad0"
-					class="fixed z-50 inset-0 overflow-y-auto hidden"
-					aria-labelledby="modal-title"
-					role="dialog"
-					aria-modal="true"
-					style="z-index: 5000"
-				>
-					<div
-						class="flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-					>
-						<div
-							class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-							aria-hidden="true"
-						></div>
-						<span
-							class="hidden sm:inline-block sm:align-middle sm:h-screen"
-							aria-hidden="true"
-						>
-							​
-						</span>
-						<div
-							class="inline-block align-bottom md:align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all mb-2 w-full sm:w-9/12 md:w-3/4 lg:w-1/2"
-						>
-							<div class="hidden md:block">
-								<div class="flex justify-center space-x-5 m-7">
-									<div
-										class="overflow-hidden text-black rounded-md w-1/2"
-										style="height: 450px"
-									>
-										<div class="bg-gray-200 rounded-md">
-											<img
-												src="https://intranet.iitg.ac.in/sa/api/team/sa/60f0175cc146ef0840a54ad0"
-												alt="ProfilePic"
-												class="w-full object-contain"
-												style="height: 300px"
-											/>
-										</div>
-										<div class="ml-3.5 text-2xl font-semibold mt-4">
-											Prof. Anamika Barua
-										</div>
-										<div class="ml-3.5 text-lg mt-2 mb-2">
+							<div class="flex justify-center">
+								<div class="mt-4 rounded-md" style="width: 320px">
+									<div class="bg-gray-200 flex justify-center">
+										<img src="https://intranet.iitg.ac.in/sa/api/team/sa/60f0175cc146ef0840a54ad0"
+											alt="ProfilePic" class="h-64 w-auto object-contain rounded-sm" />
+									</div>
+									<div class="h-16">
+										<div class="text-2xl pt-1">Prof. Anamika Barua</div>
+										<div class="text-lg pt-1">
 											Associate Dean of Students' Affairs
 										</div>
-										<svg
-											class="w-full"
-											width="200"
-											height="1"
-											viewBox="0 0 420 1"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<line
-												x1="0.5"
-												y1="0.5"
-												x2="419.5"
-												y2="0.500031"
-												stroke="black"
-												stroke-linecap="round"
-											></line>
-										</svg>
-										<div class="flex justify-between mx-3.5 my-2">
-											<div class="text-sm">adosa_2@iitg.ac.in</div>
-											<div class="text-sm">+91 361 258 2928</div>
-										</div>
 									</div>
-									<div
-										class="w-1/2 hidden md:block overflow-hidden mx-4 text-sm"
-									>
-										<div class="flex justify-end mb-2 text-sm">
-											<button>
-												<svg
-													width="32"
-													height="32"
-													viewBox="0 0 32 32"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path
-														fill-rule="evenodd"
-														clip-rule="evenodd"
-														d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
-														fill="#1E2532"
-													></path>
-												</svg>
-											</button>
-										</div>
-										.
+									<svg class="w-full mt-3" width="360" height="1" viewBox="0 0 360 1" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<line x1="0.5" y1="0.5" x2="359.5" y2="0.500031" stroke="black"
+											stroke-linecap="round"></line>
+									</svg>
+									<div class="h-20">
+										<div class="text-lg pt-1">adosa_2@iitg.ac.in</div>
+										<div class="text-lg pt-1">+91-+91 361 258 2928</div>
 									</div>
 								</div>
 							</div>
-							<div class="flex-column bg-white block md:hidden w-auto px-2">
-								<div class="flex justify-end mt-2 mr-2">
-									<button>
-										<svg
-											width="32"
-											height="32"
-											viewBox="0 0 32 32"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												fill-rule="evenodd"
-												clip-rule="evenodd"
-												d="M9.072 0H22.944C28.368 0 32 3.808 32 9.472V22.5456C32 28.1936 28.368 32 22.944 32H9.072C3.648 32 0 28.1936 0 22.5456V9.472C0 3.808 3.648 0 9.072 0ZM20.8166 20.8005C21.3606 20.2581 21.3606 19.3781 20.8166 18.8341L17.9686 15.9861L20.8166 13.1365C21.3606 12.5941 21.3606 11.6981 20.8166 11.1541C20.2726 10.6085 19.3926 10.6085 18.8326 11.1541L16.0006 14.0005L13.1526 11.1541C12.5926 10.6085 11.7126 10.6085 11.1686 11.1541C10.6246 11.6981 10.6246 12.5941 11.1686 13.1365L14.0166 15.9861L11.1686 18.8181C10.6246 19.3781 10.6246 20.2581 11.1686 20.8005C11.4406 21.0725 11.8086 21.2181 12.1606 21.2181C12.5286 21.2181 12.8806 21.0725 13.1526 20.8005L16.0006 17.9701L18.8486 20.8005C19.1206 21.0901 19.4726 21.2181 19.8246 21.2181C20.1926 21.2181 20.5446 21.0725 20.8166 20.8005Z"
-												fill="#1E2532"
-											></path>
-										</svg>
-									</button>
-								</div>
-								<div class="flex justify-center">
-									<div class="mt-4 rounded-md" style="width: 320px">
-										<div class="bg-gray-200 flex justify-center">
-											<img
-												src="https://intranet.iitg.ac.in/sa/api/team/sa/60f0175cc146ef0840a54ad0"
-												alt="ProfilePic"
-												class="h-64 w-auto object-contain rounded-sm"
-											/>
-										</div>
-										<div class="h-16">
-											<div class="text-2xl pt-1">Prof. Anamika Barua</div>
-											<div class="text-lg pt-1">
-												Associate Dean of Students' Affairs
-											</div>
-										</div>
-										<svg
-											class="w-full mt-3"
-											width="360"
-											height="1"
-											viewBox="0 0 360 1"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<line
-												x1="0.5"
-												y1="0.5"
-												x2="359.5"
-												y2="0.500031"
-												stroke="black"
-												stroke-linecap="round"
-											></line>
-										</svg>
-										<div class="h-20">
-											<div class="text-lg pt-1">adosa_2@iitg.ac.in</div>
-											<div class="text-lg pt-1">+91-+91 361 258 2928</div>
-										</div>
-									</div>
-								</div>
-								<div class="flex justify-center mt-2 text-sm text-center">
-									.
-								</div>
+							<div class="flex justify-center mt-2 text-sm text-center">
+								.
 							</div>
 						</div>
 					</div>
 				</div>
-				<div
-					class="md:w-1/2 lg:w-1/4 hidden md:block overflow-hidden bg-blue-600 rounded-md mb-24 mx-4 cursor-pointer"
-					style="height: 450px"
-				>
-					<div class="bg-gray-200 rounded-md">
-						<img
-							src="https://intranet.iitg.ac.in/sa/api/team/sa/60f0175cc146ef0840a54ad0"
-							alt="ProfilePic"
-							class="w-full object-contain"
-							style="height: 300px"
-						/>
+			</div>
+			<div class="md:w-1/2 lg:w-1/4 hidden md:block overflow-hidden bg-blue-600 rounded-md mb-24 mx-4 cursor-pointer"
+				style="height: 450px">
+				<div class="bg-gray-200 rounded-md">
+					<img src="https://intranet.iitg.ac.in/sa/api/team/sa/60f0175cc146ef0840a54ad0" alt="ProfilePic"
+						class="w-full object-contain" style="height: 300px" />
+				</div>
+				<div class="ml-3.5 text-2xl text-white font-semibold mt-4">
+					Prof. Anamika Barua
+				</div>
+				<div class="ml-3.5 text-lg text-white mt-2 mb-2">
+					Associate Dean of Students' Affairs
+				</div>
+				<svg class="w-full" width="200" height="1" viewBox="0 0 420 1" fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<line x1="0.5" y1="0.5" x2="419.5" y2="0.500031" stroke="white" stroke-linecap="round"></line>
+				</svg>
+				<div class="flex justify-between mx-3.5 my-2">
+					<div class="text-sm text-white">adosa_2@iitg.ac.in</div>
+					<div class="text-sm text-white">+91 361 258 2928</div>
+				</div>
+			</div>
+			<div class="block md:hidden flex justify-center">
+				<div class="bg-blue-600 mt-8 rounded-md cursor-pointer" style="width: 320px">
+					<div class="bg-gray-200 flex justify-center">
+						<img src="https://intranet.iitg.ac.in/sa/api/team/sa/60f0175cc146ef0840a54ad0" alt="ProfilePic"
+							class="h-64 w-auto object-contain rounded-sm" />
 					</div>
-					<div class="ml-3.5 text-2xl text-white font-semibold mt-4">
-						Prof. Anamika Barua
+					<div class="h-16">
+						<div class="text-white text-2xl ml-4 pt-1">
+							Prof. Anamika Barua
+						</div>
+						<div class="text-white text-lg ml-4 pt-1">
+							Associate Dean of Students' Affairs
+						</div>
 					</div>
-					<div class="ml-3.5 text-lg text-white mt-2 mb-2">
-						Associate Dean of Students' Affairs
-					</div>
-					<svg
-						class="w-full"
-						width="200"
-						height="1"
-						viewBox="0 0 420 1"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<line
-							x1="0.5"
-							y1="0.5"
-							x2="419.5"
-							y2="0.500031"
-							stroke="white"
-							stroke-linecap="round"
-						></line>
+					<svg class="w-full px-4 mt-3" width="360" height="1" viewBox="0 0 360 1" fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<line x1="0.5" y1="0.5" x2="359.5" y2="0.500031" stroke="white" stroke-linecap="round"></line>
 					</svg>
-					<div class="flex justify-between mx-3.5 my-2">
-						<div class="text-sm text-white">adosa_2@iitg.ac.in</div>
-						<div class="text-sm text-white">+91 361 258 2928</div>
-					</div>
-				</div>
-				<div class="block md:hidden flex justify-center">
-					<div
-						class="bg-blue-600 mt-8 rounded-md cursor-pointer"
-						style="width: 320px"
-					>
-						<div class="bg-gray-200 flex justify-center">
-							<img
-								src="https://intranet.iitg.ac.in/sa/api/team/sa/60f0175cc146ef0840a54ad0"
-								alt="ProfilePic"
-								class="h-64 w-auto object-contain rounded-sm"
-							/>
-						</div>
-						<div class="h-16">
-							<div class="text-white text-2xl ml-4 pt-1">
-								Prof. Anamika Barua
-							</div>
-							<div class="text-white text-lg ml-4 pt-1">
-								Associate Dean of Students' Affairs
-							</div>
-						</div>
-						<svg
-							class="w-full px-4 mt-3"
-							width="360"
-							height="1"
-							viewBox="0 0 360 1"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<line
-								x1="0.5"
-								y1="0.5"
-								x2="359.5"
-								y2="0.500031"
-								stroke="white"
-								stroke-linecap="round"
-							></line>
-						</svg>
-						<div class="h-20">
-							<div class="text-white text-lg ml-4 pt-1">adosa_2@iitg.ac.in</div>
-							<div class="text-white text-lg ml-4 pt-1">
-								+91-+91 361 258 2928
-							</div>
+					<div class="h-20">
+						<div class="text-white text-lg ml-4 pt-1">adosa_2@iitg.ac.in</div>
+						<div class="text-white text-lg ml-4 pt-1">
+							+91-+91 361 258 2928
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<!-- Site footer -->
-		<footer class="body-font" style="background-color: rgb(30, 37, 50)">
-			<div
-				class="container px-10 sm:px-12 pt-8 pb-3 sm:py-10 mx-auto flex items-center sm:flex-row flex-col"
-			>
-				<a
-					class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
-					href="/sa"
-					><img
-						src="/sa/static/media/swc-logo.1a2803ce.svg"
-						alt="swc-logo"
-						class="mr-3 transform scale-90"
-					/><span class="text-xl text-white"
-						>Gymkhana Council IIT Guwahati</span
-					></a
-				>
-				<p
-					class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-400 sm:py-2 sm:mt-0 mt-4"
-				>
-					© 2021 SWC —<a
-						href="https://www.facebook.com/sgciitg/"
-						class="text-gray-600 ml-1"
-						rel="noopener noreferrer"
-						target="_blank"
-						>@swciitg</a
-					>
-				</p>
-				<span
-					class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
-					><a href="/" class="text-gray-500"
-						><svg
-							fill="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							class="w-5 h-5"
-							viewBox="0 0 24 24"
-						>
-							<path
-								d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
-							></path></svg></a
-					><a class="ml-3 text-gray-500" href="/"
-						><svg
-							fill="currentColor"
-							stroke="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="0"
-							class="w-5 h-5"
-							viewBox="0 0 24 24"
-						>
-							<path
-								stroke="none"
-								d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-							></path>
-							<circle cx="4" cy="4" r="2" stroke="none"></circle></svg></a
-				></span>
-			</div>
-		</footer>
-	</body>
+	<!-- Site footer -->
+	<footer class="body-font" style="background-color: rgb(30, 37, 50)">
+		<div class="container px-10 sm:px-12 pt-8 pb-3 sm:py-10 mx-auto flex items-center sm:flex-row flex-col">
+			<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+				href="/sa"><img src="/sa/static/media/swc-logo.1a2803ce.svg" alt="swc-logo"
+					class="mr-3 transform scale-90" /><span class="text-xl text-white">Gymkhana Council IIT
+					Guwahati</span></a>
+			<p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-400 sm:py-2 sm:mt-0 mt-4">
+				© 2021 SWC —<a href="https://www.facebook.com/sgciitg/" class="text-gray-600 ml-1"
+					rel="noopener noreferrer" target="_blank">@swciitg</a>
+			</p>
+			<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"><a href="/"
+					class="text-gray-500"><svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+						stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+						<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+					</svg></a><a class="ml-3 text-gray-500" href="/"><svg fill="currentColor" stroke="currentColor"
+						stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5"
+						viewBox="0 0 24 24">
+						<path stroke="none"
+							d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+						</path>
+						<circle cx="4" cy="4" r="2" stroke="none"></circle>
+					</svg></a></span>
+		</div>
+	</footer>
+</body>
+
 </html>
