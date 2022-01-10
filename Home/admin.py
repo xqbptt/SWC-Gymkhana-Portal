@@ -12,4 +12,4 @@ admin.site.register(Panel)
 
 admin.site.register(Gallery)
 
-admin.site.register(Card)
+admin.site.register(Board)

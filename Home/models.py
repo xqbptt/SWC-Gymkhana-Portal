@@ -38,8 +38,8 @@ class Panel(models.Model):
     def __str__(self):
         return self.name
 
-class Card(models.Model):
-    name = models.CharField(max_length=40)
+class Board(models.Model):
+    id = models.CharField(primary_key=True,max_length=40)
     boardName = models.CharField(max_length=30)
     description = models.TextField()
     image = models.ImageField(default='default.png', upload_to='profile_pics')

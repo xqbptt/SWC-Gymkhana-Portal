@@ -11480,12 +11480,12 @@ video {
 }
 
 .text-sm {
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.25rem;
 }
 
 .text-base {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
 }
 
@@ -171915,29 +171915,62 @@ py
     animation: bounce 1s infinite;
   }
 }
-
-.hide {
-	display: none;
+.active-tab,
+.active-tab:hover {
+  background: #2170e8;
+  color: white !important;
+  font-size: 1.2rem;
+  text-align: center;
+  display: flex;
+  flex-shrink: 1;
+  justify-content: start;
+  padding: 1.5rem;
+  font-weight: 600 !important;
 }
 
-.myDIV:hover + .hide {
-	display: block;
-	position: absolute;
-	width: 855px;
-	height: 450px;
-	margin-top: 30px;
-}
-.card {
-	width: 700px;
-	color: #fff;
-	background: linear-gradient(
-			272.13deg,
-			#1e2532 -9.08%,
-			rgba(37, 43, 54, 0.67) 172.74%
-		),
-		url(image.png);
+.text-blue-550 {
+  color: blue;
+  font-weight: bold;
 }
 
-.Ma{
-list-style: none;
+.bg-accent {
+  background: #2170e8;
+}
+
+.topNavTab {
+  position: relative;
+}
+
+.topNavTab:hover::after {
+  content: "";
+  border-left: 0.6rem solid transparent;
+  border-right: 0.6rem solid transparent;
+  border-bottom: 0.6rem solid rgb(56, 56, 56);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .active-tab,
+  .active-tab:hover {
+    justify-content: center;
+  }
+}
+@media (min-width: 1024px) {
+  .active-tab,
+  .active-tab:hover {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    min-width: 20rem;
+    flex-grow: revert;
+  }
+}
+@media (min-width: 768px) {
+  .hamberg,
+  .hamberg:hover {
+    visibility: hidden;
+  }
 }

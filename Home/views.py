@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Gallery,Senator,Minute
+from .models import Gallery,Senator,Minute,Board
 # from Authentication.models import NewMinutes
 from django.contrib import messages
+import json
 # from . import forms
 
 # Create your views here.
@@ -12,13 +13,22 @@ def home(request):
         sr = Senator.objects.all().filter(tag=1)
         images = Gallery.objects.all()
         ads = Senator.objects.all().filter(tag=0)
+        boards = Board.objects.all()
     except Senator.DoesNotExist:
         sr = None
+    board_list = []
+    for board in boards:
+        board_list += [board.name]
+    print(board_list)
     context = {
         'reps': sr,
         'dean': ads,
-        'images': images
+        'images': images,
+        'boards': boards,
+        'hello' : "hello world"
     }
+    context['board_list'] = json.dumps(board_list)
+    print(type(context['board_list']))
     return render(request, 'Home/home.html',context)
 
 
