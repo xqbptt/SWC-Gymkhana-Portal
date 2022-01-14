@@ -15,7 +15,7 @@ from . import forms
 def home(request):
   context = initialize_context(request)
 
-  return render(request, 'Authentication/home.html', context)
+  return render(request, 'Authentication/login.html', context)
 # </HomeViewSnippet>
 
 # <InitializeContextSnippet>

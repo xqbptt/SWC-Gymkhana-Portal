@@ -27,11 +27,11 @@
                 {% for board in boards %}
                 <div
                 class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
-                style="cursor: pointer" id="{{board.name}}"
+                style="cursor: pointer" id="{{board.id}}"
             >
-                <p class="text-center text-sm text-blue-600">{{ board.name }}/p>
+                <p class="text-center text-sm text-blue-600">{{ board.boardName }}
             </div>
-            <div id="{{ board.name }}-dropdown" class="hidden">
+            <div id="{{ board.id }}-dropdown" class="hidden">
                 <div
                 class="content"
                 onMouseEnter={handleMouseEnter}
