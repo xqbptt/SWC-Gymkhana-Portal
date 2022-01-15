@@ -30,8 +30,8 @@
 
 <body style="background-color: rgb(255, 255, 255)">
 	{% block nav-sidebar %}
-          {% include "Home/navbar.html" %}
-    {% endblock %}
+	{% include "Home/navbar.html" %}
+	{% endblock %}
 	<div class="container">
 		{% if messages %} {% for message in messages %}
 		<div class="alert alert-{{message.tags}}">{{message}}</div>
