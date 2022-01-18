@@ -1,5 +1,6 @@
+from unicodedata import category
 from django.shortcuts import render, redirect
-from .models import Gallery,Senator,Minute,Board
+from .models import Gallery,Senator,Minute,Board,Panel
 # from Authentication.models import NewMinutes
 from django.contrib import messages
 import json
@@ -9,6 +10,7 @@ import json
 
 
 def home(request):
+    categoriesCount = 5
     try:
         sr = Senator.objects.all().filter(tag=1)
         images = Gallery.objects.all()
@@ -16,13 +18,17 @@ def home(request):
         boards = Board.objects.all()
     except Senator.DoesNotExist:
         sr = None
+    senator_dict = {}
+    for i in range(0,categoriesCount):
+        senators = Senator.objects.all().filter(tag=i)
+        senator_dict[i] = senators
     board_list = []
     for board in boards:
-        board_list += [board.name]
+        board_list += [board.id]
     print(board_list)
     context = {
-        'reps': sr,
-        'dean': ads,
+        'categories':categoriesCount,
+        'senators':senator_dict,
         'images': images,
         'boards': boards,
         'hello' : "hello world"
