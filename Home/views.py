@@ -59,31 +59,6 @@ def senate(request):
     return render(request, 'Home/senate.html',context)
 
 
-def cultural(request):
-    
-    return render(request, 'Home/cultural.html')
-
-
-def technical(request):
-    
-    return render(request, 'Home/technical.html')
-
-
-def welfare(request):
-    
-    return render(request, 'Home/welfare.html')
-
-
-def sports(request):
-
-    return render(request, 'Home/sports.html')
-
-
-def hab(request):
-    
-    return render(request, 'Home/hab.html')
-
-
 def gallery(request):
     try:
           images = Gallery.objects.all()

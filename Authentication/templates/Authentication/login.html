@@ -1,7 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="/sa/favicon.ico">
+    <link rel="icon" href="{% static 'Authentication/swc.png' %}">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#000000">
     <meta name="description" content="IIT Guwahati, Student Affairs Portal">
@@ -19,7 +20,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/react-draft-wysiwyg@1.12.3/dist/react-draft-wysiwyg.css">
     <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
     <title>Students Affairs, IIT Guwahati</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'Home/main.css' %}" />
     <link rel="stylesheet" href="{% static 'Authentication/admin.css' %}" />
 </head>
@@ -27,7 +27,7 @@
     <div id="root">
         <div class="bg-gray-100 font-family-karla flex">
             <aside class="relative bg-sidebar  w-64 hidden sm:block shadow-xl">
-                <div class="p-6"><p class="text-white text-3xl font-semibold uppercase hover:text-gray-300">GYMKHANA ADMIN</p></div>
+                <div class="p-6"><p class="text-red text-3xl font-semibold uppercase hover:text-black-300"><a href="">GYMKHANA ADMIN</a></p></div>
                 {% if user.is_authenticated %}
                 <nav class="text-white text-base font-semibold pt-3">
                     <a href="{% url 'about-form' %}" style="color: whitesmoke;" class="active flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
@@ -57,7 +57,7 @@
                 <header class="w-full bg-sidebar py-5 px-6 sm:hidden">
                     <div class="flex items-center justify-between"><a
                             class="text-white text-3xl font-semibold uppercase hover:text-gray-300"
-                            href="/sa/admin/">Admin</a><button class="text-white text-3xl focus:outline-none">O</button>
+                            href="/login/">Admin</a><button class="text-white text-3xl focus:outline-none">O</button>
                     </div>
                     <nav class="hidden flex flex-col pt-4">
                         {% if not user.is_authenticated %}
