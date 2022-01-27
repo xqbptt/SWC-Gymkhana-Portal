@@ -1,5 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
+
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="{% static 'Authentication/swc.png' %}">
@@ -23,35 +24,46 @@
     <link rel="stylesheet" href="{% static 'Home/main.css' %}" />
     <link rel="stylesheet" href="{% static 'Authentication/admin.css' %}" />
 </head>
+
 <body><noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
         <div class="bg-gray-100 font-family-karla flex">
             <aside class="relative bg-sidebar  w-64 hidden sm:block shadow-xl">
-                <div class="p-6"><p class="text-red text-3xl font-semibold uppercase hover:text-black-300"><a href="">GYMKHANA ADMIN</a></p></div>
+                <div class="p-6">
+                    <p class=" font-admin font-semibold uppercase hover:text-black-400 gymkhana-title"><a
+                            href="">GYMKHANA
+                            ADMIN</a></p>
+                </div>
                 {% if user.is_authenticated %}
                 <nav class="text-white text-base font-semibold pt-3">
-                    <a href="{% url 'about-form' %}" style="color: whitesmoke;" class="active flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <a href="{% url 'about-form' %}" style="color: whitesmoke;"
+                        class="active flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                         Abouts
                     </a>
-                    <a href="{% url 'minute-form' %}" style="color: whitesmoke;" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <a href="{% url 'minute-form' %}" style="color: whitesmoke;"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                         Minutes
                     </a>
-                    <a href="{% url 'gallery-form' %}" style="color: whitesmoke;" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <a href="{% url 'gallery-form' %}" style="color: whitesmoke;"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                         Gallery
                     </a>
-                    <a href="{% url 'senator-form' %}" style="color: whitesmoke;" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <a href="{% url 'senator-form' %}" style="color: whitesmoke;"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                         Senators
                     </a>
                 </nav>
-            {% endif %}
+                {% endif %}
             </aside>
             <div class="relative w-full flex flex-col overflow-y-hidden">
                 <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
                     <div class="w-1/2"></div>
                     {% if user.is_authenticated %}
-                    <div class="relative w-1/2 flex justify-end"><button> <a href="{% url 'signout' %}">Logout</a></button></div>
+                    <div class="relative w-1/2 flex justify-end"><button> <a
+                                href="{% url 'signout' %}">Logout</a></button></div>
                     {% else %}
-                    <div class="relative w-1/2 flex justify-end"><button> <a href="{% url 'signin' %}">Login</a></button></div>
+                    <div class="relative w-1/2 flex justify-end"><button> <a
+                                href="{% url 'signin' %}">Login</a></button></div>
                     {% endif %}
                 </header>
                 <header class="w-full bg-sidebar py-5 px-6 sm:hidden">
@@ -61,12 +73,10 @@
                     </div>
                     <nav class="hidden flex flex-col pt-4">
                         {% if not user.is_authenticated %}
-                        <a
-                            href="{% url 'signin' %}"
+                        <a href="{% url 'signin' %}"
                             class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">Login</a>
                         {% else %}
-                        <a
-                            href="{% url 'signout' %}"
+                        <a href="{% url 'signout' %}"
                             class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">Logout</a>
                         {% endif %}
                     </nav>
@@ -76,11 +86,13 @@
                         <div class="h-4/5 flex justify-center items-center">
                             {% block content %}
                             <div>
-                                <h1 class="text-2xl sm:text-3xl font-bold text-center">Welcome to Gymkhana Portal's Admin
+                                <img src="{% static 'Home/images/logo.png' %}" alt="Gymkhana-Logo"
+                                    class="gymkhana-logo">
+                                <h1 class="text-2xl sm:text-3xl font-bold text-center">Welcome to Gymkhana Portal's
+                                    Admin
                                     Panel.</h1>
                                 {% if not user.is_authenticated %}
-                                <p class="text-xl sm:text-2xl text-center mt-3">Please <a
-                                        href="{% url 'signin' %}"
+                                <p class="text-xl sm:text-2xl text-center mt-3 ">Please <a href="{% url 'signin' %}"
                                         class="text-blue-500 underline">Login</a></p>
                                 {% endif %}
                             </div>

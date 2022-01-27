@@ -6880,7 +6880,14 @@ video {
 .border-separate {
   border-collapse: separate;
 }
-
+.home-para-title{
+  font-size: 1.8rem;
+  padding: 5% 10% 0;
+}
+.home-subt{
+    color: #2c2c2c;
+   margin: 2% auto;
+}
 .border-transparent {
   border-color: transparent;
 }
@@ -9866,7 +9873,9 @@ video {
 .hidden {
   display: none;
 }
-
+.home-para{
+  padding: 0 10% 5%;
+}
 .flex-row {
   flex-direction: row;
 }
@@ -38394,7 +38403,11 @@ video {
   .sm\:inline-block {
     display: inline-block;
   }
-
+  
+.buttons-opt{
+  margin: 1% auto;
+  text-align: center;
+}
   .sm\:inline {
     display: inline;
   }

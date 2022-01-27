@@ -1,16 +1,40 @@
 <html>
 {% load static %}
+
 <body class="gallery">
-<div class="main_img_gallery_container bg-blue-50">
-    <div class="react-photo-gallery--gallery">
-        <div style="display: flex; flex-flow: row wrap;">
-            {% for i in images.all %}
-            <img src="senate/media/{{ i.image }}" width="32.6%" height="350px"
-                style="margin: 5px; display: block; cursor: pointer;">
-            {% endfor %}
+    <div class="main_img_gallery_container bg-blue-50">
+        <div class="react-photo-gallery--gallery">
+            <div style="display: flex; flex-flow: row wrap;">
+                {% for i in images.all %}
+                <img src="senate/media/{{ i.image }}" width="32.6%" height="350px"
+                    style="margin: 5px; display: block; cursor: pointer;">
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
 </body>
+<!-- 
+<script>
+
+    function gallery() {
+        let scrollerID;
+        let paused = true;
+        let speed = 9; // 1 - Fast | 2 - Medium | 3 - Slow
+        let interval = speed * 5;
+
+        function startScroll() {
+            let id = setInterval(function () {
+                window.scrollBy(0, 2);
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    stopScroll();
+                }
+            }, interval);
+            return id;
+        }
+        function stopScroll() {
+            clearInterval(scrollerID);
+        }
+    }
+</script> -->
 
 </html>
