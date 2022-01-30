@@ -4,12 +4,12 @@
 <br />
 <div align="center">
   <a href="https://github.com/xqbptt/SWC-Gymkhana-Portal/tree/django/Home">
-    <img src="https://raw.githubusercontent.com/xqbptt/SWC-Gymkhana-Portal/django/Home/static/Home/images/IITGlogo.png" alt="Logo" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/xqbptt/SWC-Gymkhana-Portal/django/Home/static/Home/images/IITGlogo.png" alt="Logo" width="130" height="130">
   </a>
   <!-- Header-->
    <h3 align="center">IITG Gymkhana</h3>
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Project Readme
     <br />
     <a href="https://github.com/xqbptt/SWC-Gymkhana-Portal"><strong>Explore the docs »</strong></a>
     <br />
