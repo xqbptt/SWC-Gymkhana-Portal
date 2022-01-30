@@ -9,7 +9,7 @@
   <!-- Header-->
    <h3 align="center">IITG Gymkhana</h3>
   <p align="center">
-    Project Readme
+    STUDENT AFFAIR SECTION IITG
     <br />
     <a href="https://github.com/xqbptt/SWC-Gymkhana-Portal"><strong>Explore the docs »</strong></a>
     <br />
