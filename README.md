@@ -11,8 +11,6 @@
   <p align="center">
     STUDENT AFFAIR SECTION IITG
     <br />
-    <a href="https://github.com/xqbptt/SWC-Gymkhana-Portal"><strong>Explore the docs »</strong></a>
-    <br />
     <br />
   </p>
 </div>
