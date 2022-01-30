@@ -84,11 +84,7 @@ Installing and setting up the app.
    ```
 3. Install required packages
    ```sh
-   Pip install requirements.txy
-   ```
-4. Propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema
-   ```sh
-   python manage.py makemigrations
+   pip install -r requirments.txt
    ```
 5. Run a emulated server on your local computer
    ```sh
