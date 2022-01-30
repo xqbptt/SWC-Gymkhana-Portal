@@ -79,20 +79,20 @@ This is an example of how to list things you need to use the software and how to
 ### Installation
 
 Installing and setting up the app.
-
-1. Clone the repo
+1. Fork the Repository
+2. Clone the repo 
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/your-username/SWC-Gymkhana-Portal.git
    ```
-2. Install required packages
+3. Install required packages
    ```sh
    Pip install requirements.txy
    ```
-3. Propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema
+4. Propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema
    ```sh
    python manage.py makemigrations
    ```
-4. Run a emulated server on your local computer
+5. Run a emulated server on your local computer
    ```sh
    python manage.py runserver
    ```
