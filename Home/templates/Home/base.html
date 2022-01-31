@@ -30,8 +30,8 @@
 
 <body style="background-color: rgb(255, 255, 255)">
 	{% block nav-sidebar %}
-          {% include "Home/navbar.html" %}
-    {% endblock %}
+	{% include "Home/navbar.html" %}
+	{% endblock %}
 	<div class="container">
 		{% if messages %} {% for message in messages %}
 		<div class="alert alert-{{message.tags}}">{{message}}</div>
@@ -71,7 +71,7 @@
 	{% for category,list in senators.items %}
 	<div class="hidden md:relative md:-top-20 lg:-top-32" id="senator-tab-{{category}}">
 		<div class="md:flex md:flex-wrap justify-center">
-		{% for member in list %}
+			{% for member in list %}
 			<div id="612c90f0b00d46714ad4c576" class="fixed z-50 inset-0 overflow-y-auto hidden"
 				aria-labelledby="modal-title" role="dialog" aria-modal="true" style="z-index: 5000">
 				<div class="flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -183,7 +183,7 @@
 		</div>
 	</div>
 	{% endfor %}
-	
+
 
 	<!-- Site footer -->
 	<footer class="body-font" style="background-color: rgb(30, 37, 50)">
@@ -213,7 +213,7 @@
 	<script>
 		var numCategories = "{{categories}}"
 	</script>
-	<script src="{% static 'Home/senators.js' %}" ></script>
+	<script src="{% static 'Home/senators.js' %}"></script>
 </body>
 
 </html>
