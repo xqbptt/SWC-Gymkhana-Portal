@@ -1,0 +1,14 @@
+{% extends "Home/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %} 
+
+<div class="content-section">
+    <h2>Drop Your Query</h2>
+    <form action="{% url 'gymkhana-complaint' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-info" type="submit" value="Post">
+    </form>
+</div>
+
+{% endblock content %}

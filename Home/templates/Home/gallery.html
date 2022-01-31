@@ -1,0 +1,16 @@
+<html>
+{% load static %}
+<body class="gallery">
+<div class="main_img_gallery_container bg-blue-50">
+    <div class="react-photo-gallery--gallery">
+        <div style="display: flex; flex-flow: row wrap;">
+            {% for i in images.all %}
+            <img src="senate/media/{{ i.image }}" width="32.6%" height="350px"
+                style="margin: 5px; display: block; cursor: pointer;">
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

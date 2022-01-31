@@ -1,0 +1,14 @@
+{% extends "Authentication/login.html" %}
+{% load crispy_forms_tags %}
+{% block content %} 
+
+<div class="content-section">
+    <h2>Submit the Minutes as pdf!</h2>
+    <form action="{% url 'minute-form' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-info" type="submit" value="Post">
+    </form>
+</div>
+
+{% endblock content %}
