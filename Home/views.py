@@ -10,77 +10,26 @@ import json
 
 
 def home(request):
-    categoriesCount = 5
-    try:
-        sr = Senator.objects.all().filter(tag=1)
-        images = Gallery.objects.all()
-        ads = Senator.objects.all().filter(tag=0)
-        boards = Board.objects.all()
-    except Senator.DoesNotExist:
-        sr = None
+    panels = Panel.objects.all()
     senator_dict = {}
-    for i in range(0,categoriesCount):
-        senators = Senator.objects.all().filter(tag=i)
-        senator_dict[i] = senators
+    for category in panels:
+        senator_dict[category.name] = Senator.objects.all().filter(panel=category)  
+    images = Gallery.objects.all()
+    boards = Board.objects.all()
     board_list = []
     for board in boards:
         board_list += [board.id]
     print(board_list)
+
     context = {
-        'categories':categoriesCount,
         'senators':senator_dict,
         'images': images,
         'boards': boards,
     }
     context['board_list'] = json.dumps(board_list)
     print(type(context['board_list']))
+    
     return render(request, 'Home/home.html',context)
-
-
-def senate(request):
-    try:
-        sr = Senator.objects.all().filter(tag=1)
-        ug = Senator.objects.all().filter(tag=2)
-        pg = Senator.objects.all().filter(tag=3)
-        gs = Senator.objects.all().filter(tag=4)
-        ms = Minute.objects.all()
-        ads = Senator.objects.all().filter(tag=0)
-    except Senator.DoesNotExist:
-        sr = None
-    context = {
-        'reps': sr,
-        'ugs':ug,
-        'pgs':pg,
-        'girls':gs,
-        'mins':ms,
-        'dean':ads
-    }
-    return render(request, 'Home/senate.html',context)
-
-
-def cultural(request):
-    
-    return render(request, 'Home/cultural.html')
-
-
-def technical(request):
-    
-    return render(request, 'Home/technical.html')
-
-
-def welfare(request):
-    
-    return render(request, 'Home/welfare.html')
-
-
-def sports(request):
-
-    return render(request, 'Home/sports.html')
-
-
-def hab(request):
-    
-    return render(request, 'Home/hab.html')
 
 
 def gallery(request):
@@ -92,7 +41,3 @@ def gallery(request):
         'images': images
     }
     return render(request, 'Home/gallery.html', context)
-
-
-def Senators(request):
-    return render(request, 'Home/Senators.html')

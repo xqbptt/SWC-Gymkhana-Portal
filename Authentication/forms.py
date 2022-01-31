@@ -20,7 +20,7 @@ class GalleryForm(forms.ModelForm):
         model = Gallery
         fields = ['name', 'image', 'tag']
 
-class SenatorForm(forms.ModelForm):
-    class Meta:
-        model = Senator
-        fields = ['image', 'name', 'position', 'board', 'mobile', 'linked_in', 'facebook', 'email', 'address', 'tag']
+# class SenatorForm(forms.ModelForm):
+#     class Meta:
+#         model = Senator
+#         fields = ['image', 'name', 'position', 'board', 'mobile', 'linked_in', 'facebook', 'email', 'address', 'tag']
