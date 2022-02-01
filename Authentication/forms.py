@@ -1,7 +1,7 @@
 from django.db.models.base import Model
 from django.forms import ModelForm, fields
 from Authentication import models
-from Home.models import Minute,About,Gallery,Senator
+from Home.models import Minute,About,Image,Senator
 from django import forms
 
 
@@ -15,10 +15,10 @@ class MinuteForm(forms.ModelForm):
         model = Minute
         fields = ['title', 'pdf']
 
-class GalleryForm(forms.ModelForm):
+class ImageForm(forms.ModelForm):
     class Meta:
-        model = Gallery
-        fields = ['name', 'image', 'tag']
+        model = Image
+        fields = ['image']
 
 # class SenatorForm(forms.ModelForm):
 #     class Meta:

@@ -1,4 +1,6 @@
 console.log("Senator script is running");
+panel_list = JSON.parse(panel_list)
+console.log(panel_list)
 var currentActiveTabIndex = 0;
 var currentActiveButton = document.getElementById("senator-button-"+currentActiveTabIndex)
 var currentActiveTab = document.getElementById("senator-tab-"+currentActiveTabIndex)
@@ -7,7 +9,6 @@ currentActiveButton.classList.add("bg-black")
 currentActiveButton.classList.remove("text-black")
 currentActiveButton.classList.add("text-white")
 currentActiveTab.classList.remove('hidden')
-numCategories = parseInt(numCategories)
 var defineFunction = function(i){
     return function(){
         var currentActiveButton = document.getElementById("senator-button-"+currentActiveTabIndex)
@@ -27,7 +28,7 @@ var defineFunction = function(i){
         currentActiveTabIndex=i
     }
 }
-for(var i = 0; i<numCategories; i++) {
+for(var i = 0; i<panel_list.length; i++) {
     var button = document.getElementById("senator-button-"+i)
     button.onclick = defineFunction(i)
 }

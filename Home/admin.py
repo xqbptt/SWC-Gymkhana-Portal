@@ -10,6 +10,6 @@ admin.site.register(Minute)
 
 admin.site.register(Panel)
 
-admin.site.register(Gallery)
+admin.site.register(Image)
 
 admin.site.register(Board)

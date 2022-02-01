@@ -49,10 +49,5 @@ class Board(models.Model):
     def __str__(self):
         return self.boardName
 
-class Gallery(models.Model):
-    name = models.CharField(max_length=30)
+class Image(models.Model):
     image = models.ImageField()
-    tag = models.IntegerField(null=True)
-
-    def __str__(self):
-        return self.name
