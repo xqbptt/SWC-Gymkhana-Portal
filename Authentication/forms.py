@@ -8,7 +8,7 @@ from django import forms
 class AboutForm(forms.ModelForm):
     class Meta:
         model = About
-        fields = ['name', 'description']
+        fields = ['text']
 
 class MinuteForm(forms.ModelForm):
     class Meta:
