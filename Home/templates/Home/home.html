@@ -8,6 +8,14 @@
     Council,<br> IIT Guwahati</h4>
     <p style="padding-right: 70px; padding-top: 40px;padding-bottom: 40px;">{{about.text}}
     </p>
+    <aside>
+        <h3>Meeting Minutes</h3>
+        <ul>
+        {% for minute in minutes%}
+            <li><a href="senate/media/{{minute.pdf}}">{{ minute.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </aside>
 </div>
 
 {% endblock content %}
