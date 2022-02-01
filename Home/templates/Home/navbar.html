@@ -23,52 +23,52 @@
         <div class="null topNavTab hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs"
             style="cursor: pointer" id="board-tab-{{board.id}}">
             <p class="text-center text-sm text-blue-600">{{ board.boardName }}
-                <div id="{{ board.id }}-dropdown" class="hidden">
-                    <div class="content" style="width: 100%; padding: 20px; margin-top: 40px;">
-                        <div class="infoDiv">
-                            <span class="name text-2xl font-semibold">{{board.boardName}}</span>
-                            <p class="description text-sm leading-6 pr-4 mt-5">
-                                {{board.description}}
-                            </p>
-                        </div>
-                        <div class="externalLinksDiv">
-                            <a href="{{board.notices}}" target="_blank" rel="noreferrer">
-                                <div class="title">
-                                    <span class="caption text-base font-semibold">Notices</span>
-                                    <span class="arrowIcon">
-                                        <ArrowIcon />
-                                    </span>
-                                </div>
-                            </a>
-                            <p class="description text-base">View all the recent notices related to {{board.boardName}}</p>
-                            <a href="{{board.events}}" target="_blank" rel="noreferrer">
-                                <div class="title" style="margin-top: 24px">
-                                    <span class="caption text-base font-semibold">Events</span>
-                                    <span class="arrowIcon">
-                                        <ArrowIcon />
-                                    </span>
-                                </div>
-                            </a>
-                            <p class="description text-base">View all the events organised by {{board.boardName}}</p>
-                            <a href="{{board.announcements}}" target="_blank" rel="noreferrer">
-                                <div class="title" style="margin-top: 24px">
-                                    <span class="caption text-base font-semibold">
-                                        Announcements
-                                    </span>
-                                    <span class="arrowIcon">
-                                        <ArrowIcon />
-                                    </span>
-                                </div>
-                            </a>
-                            <p class="description text-base">View all the announcements related to {{board.boardName}}</p>
-                        </div>
-                        <div class="imageDiv">
-                            <img src="senate/media/{{board.chairman.image}}" class="image" alt="" />
-                            <span class="name font-sm">{{board.chairman.name}}</span>
-                            <span class="description font-xs">Chairman {{board.boardName}}</span>
-                        </div>
+            <div id="{{ board.id }}-dropdown" class="hidden">
+                <div class="content" style="width: 100%; padding: 20px; margin-top: 40px;">
+                    <div class="infoDiv">
+                        <span class="name text-2xl font-semibold">{{board.boardName}}</span>
+                        <p class="description text-sm leading-6 pr-4 mt-5">
+                            {{board.description}}
+                        </p>
+                    </div>
+                    <div class="externalLinksDiv">
+                        <a href="{{board.notices}}" target="_blank" rel="noreferrer">
+                            <div class="title">
+                                <span class="caption text-base font-semibold">Notices</span>
+                                <span class="arrowIcon">
+                                    <ArrowIcon />
+                                </span>
+                            </div>
+                        </a>
+                        <p class="description text-base">View all the recent notices related to {{board.boardName}}</p>
+                        <a href="{{board.events}}" target="_blank" rel="noreferrer">
+                            <div class="title" style="margin-top: 24px">
+                                <span class="caption text-base font-semibold">Events</span>
+                                <span class="arrowIcon">
+                                    <ArrowIcon />
+                                </span>
+                            </div>
+                        </a>
+                        <p class="description text-base">View all the events organised by {{board.boardName}}</p>
+                        <a href="{{board.announcements}}" target="_blank" rel="noreferrer">
+                            <div class="title" style="margin-top: 24px">
+                                <span class="caption text-base font-semibold">
+                                    Announcements
+                                </span>
+                                <span class="arrowIcon">
+                                    <ArrowIcon />
+                                </span>
+                            </div>
+                        </a>
+                        <p class="description text-base">View all the announcements related to {{board.boardName}}</p>
+                    </div>
+                    <div class="imageDiv">
+                        <img src="senate/media/{{board.chairman.image}}" class="image" alt="" />
+                        <span class="name font-sm">{{board.chairman.name}}</span>
+                        <span class="description font-xs">Chairman {{board.boardName}}</span>
                     </div>
                 </div>
+            </div>
         </div>
         {% endfor %}
     </div>
