@@ -11,6 +11,9 @@ from Authentication.graph_helper import *
 from django.contrib import messages
 from . import forms
 from Home.models import *
+
+ALLOWED_EMAILS = ['p.shiv@iitg.ac.in']
+
 # <HomeViewSnippet>
 def home(request):
   context = initialize_context(request)
@@ -59,9 +62,10 @@ def sign_out(request):
 def callback(request):
   # Make the token request
   result = get_token_from_code(request)
-  print(result)
   #Get the user's profile
   user = get_user(result['access_token'])
+  if user['mail'] not in ALLOWED_EMAILS:
+    return HttpResponse("You are not allowed to access this page")
   # Store user
   store_user(request, user)
   print(user)
