@@ -1,6 +1,6 @@
 from unicodedata import category
 from django.shortcuts import render, redirect
-from .models import Gallery,Senator,Minute,Board,Panel
+from .models import Gallery, Senator, Minute, Board, Panel
 # from Authentication.models import NewMinutes
 from django.contrib import messages
 import json
@@ -34,7 +34,7 @@ def home(request):
 
 def gallery(request):
     try:
-          images = Gallery.objects.all()
+        images = Gallery.objects.all()
     except Gallery.DoesNotExist:
         pics1 = None
     context = {

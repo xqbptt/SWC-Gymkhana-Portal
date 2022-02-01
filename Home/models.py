@@ -22,7 +22,7 @@ class Panel(models.Model):
     name = models.CharField(max_length=30)
     def __str__(self):
         return self.name
-        
+
 class Senator(models.Model):
     image = models.ImageField(default='default.png', upload_to='profile_pics')
     name = models.CharField(max_length=30)
@@ -38,11 +38,10 @@ class Senator(models.Model):
 
 
 class Board(models.Model):
-    id = models.CharField(primary_key=True,max_length=40)
     boardName = models.CharField(max_length=30)
     description = models.TextField()
     image = models.ImageField(default='default.png', upload_to='profile_pics')
-    position = models.CharField(max_length=40)
+    chairman = models.ForeignKey(Senator,on_delete=models.CASCADE)
     notices = models.TextField()
     events = models.TextField()
     announcements = models.TextField()
