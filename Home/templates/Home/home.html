@@ -6,7 +6,7 @@
     <div style="flex: 3">
    <h4 class="home-title">Welcome to the Students' Gymkhana
     Council,<br> IIT Guwahati</h4>
-    <p class="home-about">{{about.text}} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis neque cupiditate, voluptatum nemo distinctio alias quas unde reiciendis, ex, illum iste dicta nostrum perferendis eius mollitia itaque nihil officia pariatur recusandae aperiam? Error excepturi voluptas saepe esse, ut sequi consequuntur, corrupti quam fuga quasi repudiandae sunt, fugiat debitis tempore ea quae perferendis nulla? Velit consequuntur dolores, blanditiis pariatur saepe dignissimos hic distinctio at eius excepturi recusandae error assumenda accusantium, optio nesciunt natus perferendis eos. Nam veritatis fugit quae nulla harum sint tempore accusantium ullam. In, adipisci odio mollitia voluptate, autem tenetur officiis non perspiciatis consequuntur, possimus maiores? Doloribus, ratione sit!
+    <p class="home-about">{{about.text}}
     </p>
     </div>
     <aside style="padding:10px;">
@@ -17,7 +17,7 @@
                     <a href="#" style="color:white" data-toggle="dropdown">Minutes</a>
                     <ul class="dropdown-menu3">
                         {% for minute in minutes%}
-                        <li><a href="senate/media/{{minute.pdf}}">{{ minute.title }}</a></li>
+                        <li><a href="media/{{minute.pdf}}">{{ minute.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>

@@ -96,7 +96,7 @@ def AboutDetails(request):
       form = forms.AboutForm(request.POST, request.FILES)
       if form.is_valid():
         about_object = About.objects.all().first()
-        about_object.text = form.text
+        about_object.text = form.cleaned_data['text']
         about_object.save()
         messages.success(request, f'Post Successful')
         return redirect('home')
@@ -117,13 +117,13 @@ def MinuteDetails(request):
 
 def GalleryDetails(request):
   if request.method == 'POST':
-      form = forms.GalleryForm(request.POST, request.FILES)
+      form = forms.ImageForm(request.POST, request.FILES)
       if form.is_valid():
           form.save()
           messages.success(request, f'Post Successful')
           return redirect('home')
   else:
-      form = forms.GalleryForm()
+      form = forms.ImageForm()
   return render(request, 'Authentication/galleryAddition.html', {'form': form})
 
 def SenatorDetails(request):

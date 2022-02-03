@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="/sa/favicon.ico">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#000000">
-    <meta name="description" content="IIT Guwahati, Student Affairs Portal">
-    <link rel="apple-touch-icon" sizes="180x180" href="/sa/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/sa/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/sa/favicon-16x16.png">
-    <link rel="manifest" href="/sa/site.webmanifest">
-    <link rel="mask-icon" href="/sa/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="description" content="IIT Guwahati, Gymkhana Portal">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <link rel="manifest" href="/sa/manifest.json">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&amp;display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/react-draft-wysiwyg@1.12.3/dist/react-draft-wysiwyg.css">
     <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Students Affairs, IIT Guwahati</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'Home/main.css' %}" />
     <link rel="stylesheet" href="{% static 'Authentication/admin.css' %}" />
 </head>
 <body><noscript>You need to enable JavaScript to run this app.</noscript>
+    {% include 'Authentication/messages.html' %}
     <div id="root">
         <div class="bg-gray-100 font-family-karla flex">
             <aside class="relative bg-sidebar  w-64 hidden sm:block shadow-xl">
@@ -88,5 +83,7 @@
             </div>
         </div>
     </div>
-    <script>!function (e) { function r(r) { for (var n, f, l = r[0], a = r[1], i = r[2], c = 0, s = []; c < l.length; c++)f = l[c], Object.prototype.hasOwnProperty.call(o, f) && o[f] && s.push(o[f][0]), o[f] = 0; for (n in a) Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n]); for (p && p(r); s.length;)s.shift()(); return u.push.apply(u, i || []), t() } function t() { for (var e, r = 0; r < u.length; r++) { for (var t = u[r], n = !0, l = 1; l < t.length; l++) { var a = t[l]; 0 !== o[a] && (n = !1) } n && (u.splice(r--, 1), e = f(f.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function f(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, f), t.l = !0, t.exports } f.m = e, f.c = n, f.d = function (e, r, t) { f.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, f.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, f.t = function (e, r) { if (1 & r && (e = f(e)), 8 & r) return e; if (4 & r && "object" == typeof e && e && e.__esModule) return e; var t = Object.create(null); if (f.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: e }), 2 & r && "string" != typeof e) for (var n in e) f.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, f.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return f.d(r, "a", r), r }, f.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, f.p = "/sa/"; var l = this.webpackJsonpfrontend = this.webpackJsonpfrontend || [], a = l.push.bind(l); l.push = r, l = l.slice(); for (var i = 0; i < l.length; i++)r(l[i]); var p = a; t() }([])</script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
