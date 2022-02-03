@@ -64,12 +64,19 @@ body {
 		sans-serif,
 		'Apple Color Emoji',
 		'Segoe UI Emoji';
+  
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .gallery::-webkit-scrollbar {
   display: none;
 }
-
 
 /*
 Grouping content

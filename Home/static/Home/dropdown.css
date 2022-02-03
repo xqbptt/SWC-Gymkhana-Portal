@@ -16,31 +16,35 @@
   .content .infoDiv {
     display: flex;
     flex-direction: column;
-    margin-top: 52px;
+    margin-top: 30px;
     width: 330px;
+    padding: 10px;
   }
   .content .infoDiv .name {
     width: auto;
-    font-family: Red Hat Display;
+    font-family: Roboto;
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 28px;
     line-height: 30px;
     letter-spacing: 0.0322em;
     color: #ffffff;
   }
   .content .infoDiv .description {
-    font-family: Red Hat Display;
+    font-family: Roboto;
     font-style: normal;
     letter-spacing: 0.62px;
+    font-size: 12px;
+    margin-top: 10px;
     color: #ffffff;
   }
   .content .externalLinksDiv {
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-top: 52px;
+    margin-top: 30px;
     width: 330px;
+    padding: 10px;
   }
   .content .externalLinksDiv .title {
     display: flex;
@@ -49,7 +53,7 @@
     cursor: pointer;
   }
   .content .externalLinksDiv .title .caption {
-    font-family: Red Hat Display;
+    font-family: Roboto;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -68,29 +72,30 @@
     position: relative;
     width: auto;
     max-width: 330px;
-    font-family: Red Hat Display;
+    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.0075em;
-    color: #ffffff;
+    font-size: 12px;
+    line-height: 12px;
+    color: yellow;
   }
   .content .imageDiv {
     display: flex;
     flex-direction: column;
-    margin-top: 52px;
-    width: 250px;
+    margin-top: 30px;
+    width: 300px;
+    padding:10px;
+    padding-top:0;
   }
   .content .imageDiv .image {
     height: 240px;
     width: 234px;
     border-radius: 2px;
-    object-fit: contain;
+    object-fit: cover;
   }
   .content .imageDiv .name {
     margin-top: 24px;
-    font-family: Red Hat Display;
+    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -101,7 +106,7 @@
   }
   .content .imageDiv .description {
     margin-top: 8px;
-    font-family: Red Hat Display;
+    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 11px;
