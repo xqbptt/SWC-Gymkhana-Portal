@@ -3,3 +3,4 @@
 __pycache__/
 db.sqlite3
 oauth_settings.yml
+media/
