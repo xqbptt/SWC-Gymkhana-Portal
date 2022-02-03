@@ -18,7 +18,7 @@ for(ind in board_list) {
         dropdown.style.left = '-100%';
     }
     else {
-        dropdown.style.left = '-250%';
+        dropdown.style.left = '-200%';
         dropdown.style.marginRight = '5px';
     }
     // console.log(dropdown.innerHTML)
